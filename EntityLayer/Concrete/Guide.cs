@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class SubFeature
+    public class Guide
     {
-        public int SubFeatureId { get; set; }
-        public string Title { get; set; }
+        public int GuideId { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        public string XUrl { get; set; }
+        public string InstagramUrl { get; set; }
         public bool Status { get; set; }
     }
 }
