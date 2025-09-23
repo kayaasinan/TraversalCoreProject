@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Entity Framework\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
 
   <ItemGroup>
