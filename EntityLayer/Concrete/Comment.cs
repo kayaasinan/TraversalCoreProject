@@ -11,10 +11,10 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int CommentId { get; set; }
-        public string User { get; set; }
-        public DateTime Date { get; set; }
-        public string Content { get; set; }
-        public string State { get; set; }
+        public string CommentUser { get; set; }
+        public DateTime CommentDate { get; set; }
+        public string CommentContent { get; set; }
+        public bool CommentState { get; set; }
 
         public int DestinationId { get; set; }
         public Destination Destination { get; set; }
