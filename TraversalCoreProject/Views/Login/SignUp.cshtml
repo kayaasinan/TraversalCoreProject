@@ -1,63 +1,105 @@
-﻿
+﻿@model RegisterViewModel
 @{
     Layout = null;
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="zxx">
+
 <head>
-	<meta charset="utf-8">
-	<title>Traversal Misafir Kayıt Ekranı</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traversal Misafir Kayıt Sayfası</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+          content="Invent Signup Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-	<!-- LINEARICONS -->
-	<link rel="stylesheet" href="~/colorlib-regform-26/fonts/linearicons/style.css">
-
-	<!-- STYLE CSS -->
-	<link rel="stylesheet" href="~/colorlib-regform-26/css/style.css">
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!--/Style-CSS -->
+    <link rel="stylesheet" href="~/web/css/style.css" type="text/css" media="all" />
+    <!--//Style-CSS -->
 </head>
 
 <body>
+    <!-- /login-section -->
+    <section class="w3l-login-6">
+        <div class="login-hny">
+            <div class="form-content">
+                <div class="form-right">
+                    <div class="overlay">
+                        <div class="grid-info-form">
+                            <h5>Traversal Rezervasyon</h5>
+                            <h3>Hesap Oluşturun </h3>
+                            <p>
+                                Hayalini kurduğun yolculuk, tam burada başlıyor. Kapadokya’nın büyüleyici vadilerinden, Karadeniz’in yeşil yaylalarına; Paris’in romantik sokaklarından, Bali’nin huzur dolu sahillerine kadar uzanan rotalar seni bekliyor. İster Türkiye içinde kültürel bir keşfe çık, ister Avrupa’nın tarihi şehirlerinde kaybol, istersen de Uzak Doğu’nun egzotik atmosferini deneyimle.
+                            </p>
+                            <a href="/Login/SignIn" class="read-more-1 btn">Hadi başlayalım</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-left">
+                    <div class="middle">
+                        <h4>Bize Katılın</h4>
+                        <p>Hemen ücretsiz hesap oluştur.</p>
+                    </div>
+                    <form method="post" class="signin-form">
+                        <div class="form-input">
+                            <label>Adınız</label>
+                            <input type="text" asp-for="Name" />
+                            <span asp-validation-for="Name" class="text-danger" style="color:red"></span>
+                        </div>
+                        <div class="form-input">
+                            <label>Soyadınız</label>
+                            <input type="text" asp-for="SurName" />
+                            <span asp-validation-for="SurName" class="text-danger" style="color:red"></span>
+                        </div>
+                        <div class="form-input">
+                            <label>Kullanıcı Adınız</label>
+                            <input type="text" asp-for="UserName" />
+                            <span asp-validation-for="UserName" class="text-danger" style="color:red"></span>
+                        </div>
+                        <div class="form-input">
+                            <label>Mail Adresiniz</label>
+                            <input type="email" asp-for="Mail" />
+                            <span asp-validation-for="Mail" class="text-danger" style="color:red"></span>
+                        </div>
+                        <div class="form-input">
+                            <label>Şifreniz</label>
+                            <input type="password" asp-for="Password" />
+                            <span asp-validation-for="Password" class="text-danger" style="color:red"></span>
+                        </div>
+                        <div class="form-input">
+                            <label>Şifrenizi Tekrar Giriniz</label>
+                            <input type="password" asp-for="ComfirmPassword" />
+                            <span asp-validation-for="ComfirmPassword" class="text-danger" style="color:red"></span>
+                        </div>
+                        <span class="text-danger">@Html.ValidationSummary()</span>
+                        <label class="container">
+                            Şartları Okudum <a href="#">Kabul Ediyorum</a>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <button class="btn">Üye Ol</button>
+                    </form>
+                    <div class="copy-right text-center">
+                        <p>
+                            © @DateTime.Now.Year Tüm hakları saklıdır.
+                        </p>
+                    </div>
+                </div>
 
-	<div class="wrapper">
-		<div class="inner">
-			<img src="~/colorlib-regform-26/images/image-1.png" alt="" class="image-1">
-			<form action="">
-				<h3>Üye Olunuz</h3>
-				<div class="form-holder">
-					<span class="lnr lnr-user"></span>
-					<input type="text" class="form-control" placeholder="Adınız">
-				</div>
-				<div class="form-holder">
-					<span class="lnr lnr-user"></span>
-					<input type="text" class="form-control" placeholder="Soyadınız">
-				</div>
-				<div class="form-holder">
-					<span class="lnr lnr-envelope"></span>
-					<input type="text" class="form-control" placeholder="Mail Adresiniz">
-				</div>
-				<div class="form-holder">
-					<span class="lnr lnr-phone-handset"></span>
-					<input type="text" class="form-control" placeholder="Telefon Numaranız">
-				</div>
-				<div class="form-holder">
-					<span class="lnr lnr-lock"></span>
-					<input type="password" class="form-control" placeholder="Şifreniz">
-				</div>
-				<div class="form-holder">
-					<span class="lnr lnr-lock"></span>
-					<input type="password" class="form-control" placeholder="Şifrenizi Tekrarlayınız">
-				</div>
-				<button>
-					<span>Üye Ol</span>
-				</button>
-			</form>
-			<img src="~/colorlib-regform-26/images/image-2.png" alt="" class="image-2">
-		</div>
+            </div>
 
-	</div>
-
-	<script src="~/colorlib-regform-26/js/jquery-3.3.1.min.js"></script>
-	<script src="~/colorlib-regform-26/js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+        </div>
+    </section>
+    <!-- //login-section -->
+</body>
 </html>
