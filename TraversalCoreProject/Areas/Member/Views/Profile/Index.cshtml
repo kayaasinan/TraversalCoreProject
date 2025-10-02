@@ -1,0 +1,31 @@
+﻿@model UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="card-header bg-white">
+    <h3 class="mb-0 fw-bold text-primary">
+        Profilim
+    </h3>
+</div>
+<form method="post">
+    @Html.Label("Adınız")
+    <input type="text" asp-for="name" class="form-control" />
+    <br />
+    @Html.Label("Soyadınız")
+    <input type="text" asp-for="surname" class="form-control" />
+    <br />
+    @Html.Label("Telefon Numaranız")
+    <input type="text" asp-for="phoneNumber" class="form-control" />
+    <br />
+    @Html.Label("Mail Adresiniz")
+    <input type="text" asp-for="mail" class="form-control" />
+    <br />
+    @Html.Label("Şifreniz")
+    <input type="text" asp-for="password" class="form-control" />
+    <br />
+    @Html.Label("Şifre Tekrar")
+    <input type="text" asp-for="confirmPassword" class="form-control" />
+    <br />
+</form>
+

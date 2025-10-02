@@ -69,7 +69,7 @@ namespace TraversalCoreProject.Controllers
                 ModelState.AddModelError("", "Email veya şifre hatalı");
                 return View(model);
             }
-            return RedirectToAction("Index", "Destination");
+            return RedirectToAction("Index", "Profile", new { area = "Member" });
         }
     }
 }
