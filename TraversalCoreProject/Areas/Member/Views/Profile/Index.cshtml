@@ -8,7 +8,15 @@
         Profilim
     </h3>
 </div>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label>Profil Resmi</label><br />
+        <img src="~/userImages/@Model.imageUrl" width="150" class="img-thumbnail" />
+    </div>
+    <div class="form-group">
+        <label>Profil Resmi Güncelle</label>
+        <input type="file" asp-for="Image" class="form-control" />
+    </div>
     @Html.Label("Adınız")
     <input type="text" asp-for="name" class="form-control" />
     <br />
@@ -27,5 +35,6 @@
     @Html.Label("Şifre Tekrar")
     <input type="text" asp-for="confirmPassword" class="form-control" />
     <br />
+    <button class="btn btn-outline-primary">Bilgileri Güncelle</button>
 </form>
 
