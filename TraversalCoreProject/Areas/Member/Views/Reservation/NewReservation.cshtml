@@ -4,5 +4,27 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<h1>NewReservation</h1>
-
+<div class="card-header bg-white">
+    <h3 class="mb-0 fw-bold text-primary">
+        Rezervasyon Oluşturma Sayfası
+    </h3>
+</div>
+<form method="post">
+    <div class="form-group">
+        @Html.Label("Lokasyon")
+        @Html.DropDownListFor(x => x.Destination, (List<SelectListItem>)ViewBag.List, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Kişi Sayısı")
+        <input type="number" asp-for="NumberOfPeople" class="form-control"/>
+    </div>
+    <div class="form-group">
+        @Html.Label("Tarih")
+        <input type="date" asp-for="ReservationDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Notlar")
+        <textarea asp-for="Notes" class="form-control" rows="8"></textarea>
+    </div>
+    <button class="btn btn-outline-primary">Rezervasyon Yap</button>
+</form>

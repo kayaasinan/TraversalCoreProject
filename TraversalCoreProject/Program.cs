@@ -6,6 +6,7 @@ using DataAccessLayer.Entity_Framework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using TraversalCoreProject.Middleware;
 using TraversalCoreProject.Validations;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +33,9 @@ builder.Services.AddMvc(config =>
 
 builder.Services.AddScoped<IDestinationService, DestinationManager>();
 builder.Services.AddScoped<IDestinationDal, EfDestinationDal>();
+builder.Services.AddScoped<IReservationService, ReservationManager>();
+builder.Services.AddScoped<IReservationDal, EfReservationDal>();
+
 
 var app = builder.Build();
 
@@ -43,8 +47,11 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+
 app.UseHttpsRedirection();
 app.UseRouting();
+//app.UseMiddleware<ApiKeyMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 
