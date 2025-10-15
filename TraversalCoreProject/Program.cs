@@ -6,6 +6,7 @@ using DataAccessLayer.Entity_Framework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using System.Reflection;
 using TraversalCoreProject.Middleware;
 using TraversalCoreProject.Validations;
 
@@ -31,10 +32,24 @@ builder.Services.AddMvc(config =>
 
 
 
-builder.Services.AddScoped<IDestinationService, DestinationManager>();
-builder.Services.AddScoped<IDestinationDal, EfDestinationDal>();
-builder.Services.AddScoped<IReservationService, ReservationManager>();
-builder.Services.AddScoped<IReservationDal, EfReservationDal>();
+var businessAssembly = Assembly.GetAssembly(typeof(DestinationManager));
+var dataAccessAssembly = Assembly.GetAssembly(typeof(EfDestinationDal));
+
+foreach (var type in businessAssembly.GetTypes()
+             .Where(t => t.IsClass && !t.IsAbstract && t.Name.EndsWith("Manager")))
+{
+    var interfaceType = type.GetInterface($"I{type.Name.Replace("Manager", "Service")}");
+    if (interfaceType != null)
+        builder.Services.AddScoped(interfaceType, type);
+}
+
+foreach (var type in dataAccessAssembly.GetTypes()
+             .Where(t => t.IsClass && !t.IsAbstract && t.Name.StartsWith("Ef")))
+{
+    var interfaceType = type.GetInterface($"I{type.Name.Replace("Ef", "")}");
+    if (interfaceType != null)
+        builder.Services.AddScoped(interfaceType, type);
+}
 
 
 var app = builder.Build();

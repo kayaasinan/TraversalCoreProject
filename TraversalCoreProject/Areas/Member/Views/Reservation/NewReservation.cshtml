@@ -16,7 +16,7 @@
     </div>
     <div class="form-group">
         @Html.Label("Kişi Sayısı")
-        <input type="number" asp-for="NumberOfPeople" class="form-control"/>
+        <input type="number" asp-for="NumberOfPeople" class="form-control" />
     </div>
     <div class="form-group">
         @Html.Label("Tarih")
@@ -28,3 +28,18 @@
     </div>
     <button class="btn btn-outline-primary">Rezervasyon Yap</button>
 </form>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        Swal.fire({
+            title: "Bilgilendirme",
+            text: "Rezervasyonunuz başlangıçta 'onay bekliyor' durumunda alınacaktır. Onay sürecini takip etmek için 'Güncel Rezervasyonlarım' menüsünü kontrol etmeyi unutmayın..!",
+            icon: "info",
+            confirmButtonText: "Tamam",
+            confirmButtonColor: "#0d6efd"
+        });
+    });
+</script>
+

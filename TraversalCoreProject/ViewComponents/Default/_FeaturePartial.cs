@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccessLayer.Entity_Framework;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,10 +7,16 @@ namespace TraversalCoreProject.ViewComponents.Default
 {
     public class _FeaturePartial:ViewComponent
     {
-        FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
+        private readonly IFeatureService _featureService;
+
+        public _FeaturePartial(IFeatureService featureService)
+        {
+            _featureService = featureService;
+        }
+
         public IViewComponentResult Invoke()
         {
-            var values = featureManager.TGetList();
+            var values = _featureService.TGetList();
             return View(values);
         }
     }

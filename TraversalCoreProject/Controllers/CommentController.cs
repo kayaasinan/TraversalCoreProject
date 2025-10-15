@@ -9,17 +9,19 @@ namespace TraversalCoreProject.Controllers
     public class CommentController : Controller
     {
         private readonly ILogger _logger;
-        CommentManager commentManager = new CommentManager(new EfCommentDal());
- 
-        public CommentController(ILogger logger)
+        private readonly ICommentService _commentService;
+
+        public CommentController(ILogger logger, ICommentService commentService)
         {
             _logger = logger;
+            _commentService = commentService;
         }
+
         public PartialViewResult AddComment(int id)
         {
             ViewBag.i = id;
 
-            _logger.LogInformation("comment eklendı");
+            _logger.LogInformation("comment eklendi");
 
             return PartialView();
         }
@@ -28,7 +30,7 @@ namespace TraversalCoreProject.Controllers
         {
             p.CommentDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             p.CommentState = true;
-            commentManager.TAdd(p);
+            _commentService.TAdd(p);
             return RedirectToAction("Index","Destination");
         }
     }

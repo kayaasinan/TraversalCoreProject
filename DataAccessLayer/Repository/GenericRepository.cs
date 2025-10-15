@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,45 +10,49 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repository
 {
-    
+
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
+        protected readonly Context _context;
+        protected readonly DbSet<T> _table;
+
+        public GenericRepository(Context context)
+        {
+            _context = context;
+            _table = _context.Set<T>();
+        }
 
         public void Delete(T t)
         {
-            using var c = new Context();
-            c.Remove(t);
-            c.SaveChanges();
+            _context.Remove(t);
+            _context.SaveChanges();
         }
 
         public T GetById(int id)
         {
-            using var c = new Context();
-            return c.Set<T>().Find(id);
+            return _table.Find(id);
         }
 
         public List<T> GetList()
         {
-            using var c = new Context();
-            return c.Set<T>().ToList();
+            return _table.ToList();
         }
 
         public List<T> GetListByFilter(Expression<Func<T, bool>> filter)
         {
-            using var c = new Context();
-            return c.Set<T>().Where(filter).ToList();
+            return _table.Where(filter).ToList();
         }
 
         public void Insert(T t)
         {
-            using var c = new Context();
-            c.Add(t);
-            c.SaveChanges();
+            _table.Add(t);
+            _context.SaveChanges();
         }
+
         public void Update(T t)
         {
-            using var c = new Context();
-            c.Update(t);
+            _table.Update(t);
+            _context.SaveChanges();
         }
     }
 }

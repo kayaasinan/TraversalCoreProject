@@ -33,6 +33,12 @@ namespace TraversalCoreProject.Areas.Member.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> MyApprovalReservation()
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            var approvalList = _reservationService.GetAllApprovalReservation(values.Id);
+            return View(approvalList);
+        }
         public IActionResult NewReservation()
         {
             List<SelectListItem> list = (from x in _destinationService.TGetList()
@@ -50,7 +56,7 @@ namespace TraversalCoreProject.Areas.Member.Controllers
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             reservation.AppUserId = user.Id;
-            reservation.Status = "Onay Bekliyor";
+            //reservation.Status = "Onay Bekliyor";
             _reservationService.TAdd(reservation);
             return RedirectToAction("MyCurrentReservation");
         }
