@@ -1,7 +1,8 @@
-﻿
+﻿@model List<Reservation>
 @{
     ViewData["Title"] = "MyPastReservations";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
+    int count = 0;
 }
 
 <div class="card-header bg-white">
@@ -10,3 +11,23 @@
     </h3>
 </div>
 
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Lokasyon</th>
+        <th>Kişi Sayısı</th>
+        <th>Rezervasyon Tarihi</th>
+        <th>Durum</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <td>@item.Destination.City</td>
+            <td>@item.NumberOfPeople</td>
+            <td>@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))</td>
+            <td>@item.Status</td>
+        </tr>
+    }
+</table>
