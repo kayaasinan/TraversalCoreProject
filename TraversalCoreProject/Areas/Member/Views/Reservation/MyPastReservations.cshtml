@@ -10,24 +10,31 @@
         Geçmiş Rezervasyonlarım
     </h3>
 </div>
+@if (Model == null || !Model.Any())
+{
+  @await Component.InvokeAsync("_MemberLayoutEmptyPageComponent")
+}
+else
+{
 
-<table class="table table-bordered">
-    <tr>
-        <th>#</th>
-        <th>Lokasyon</th>
-        <th>Kişi Sayısı</th>
-        <th>Rezervasyon Tarihi</th>
-        <th>Durum</th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        count++;
+    <table class="table table-bordered">
         <tr>
-            <th>@count</th>
-            <td>@item.Destination.City</td>
-            <td>@item.NumberOfPeople</td>
-            <td>@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))</td>
-            <td>@item.Status</td>
+            <th>#</th>
+            <th>Lokasyon</th>
+            <th>Kişi Sayısı</th>
+            <th>Rezervasyon Tarihi</th>
+            <th>Durum</th>
         </tr>
-    }
-</table>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <th>@count</th>
+                <td>@item.Destination.City</td>
+                <td>@item.NumberOfPeople</td>
+                <td>@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))</td>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </table>
+}
