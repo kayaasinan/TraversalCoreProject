@@ -51,7 +51,7 @@ namespace DataAccessLayer.Repository
 
         public void Update(T t)
         {
-            _table.Update(t);
+            _context.Update(t);
             _context.SaveChanges();
         }
     }

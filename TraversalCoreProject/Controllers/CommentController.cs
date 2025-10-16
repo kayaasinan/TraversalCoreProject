@@ -8,20 +8,17 @@ namespace TraversalCoreProject.Controllers
 {
     public class CommentController : Controller
     {
-        private readonly ILogger _logger;
         private readonly ICommentService _commentService;
 
-        public CommentController(ILogger logger, ICommentService commentService)
+        public CommentController(ICommentService commentService)
         {
-            _logger = logger;
+
             _commentService = commentService;
         }
 
         public PartialViewResult AddComment(int id)
         {
             ViewBag.i = id;
-
-            _logger.LogInformation("comment eklendi");
 
             return PartialView();
         }

@@ -8,7 +8,6 @@ namespace TraversalCoreProject.Controllers
 {
     public class DestinationController : Controller
     {
-        //DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
 
         private readonly IDestinationService _destinationService;
 
