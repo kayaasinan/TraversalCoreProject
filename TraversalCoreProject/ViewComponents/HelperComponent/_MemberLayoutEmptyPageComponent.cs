@@ -6,7 +6,7 @@ namespace TraversalCoreProject.ViewComponents.HelperComponent
     {
         public IViewComponentResult Invoke()
         {
-            var emptyPageMessage = "Görüntülenecek rezervasyon bulunamadı";
+            var emptyPageMessage = "Görüntülenecek rezervasyon bulunamadı..!";
             return View("Default", emptyPageMessage);
         }
     }

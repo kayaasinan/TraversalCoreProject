@@ -3,7 +3,17 @@
     Member Layout Empty Page Component
 *@
 
-<div style="text-align:center; padding:40px;">
-    <i class="ri-mail-close-line" style="font-size:48px; color:#ccc;"></i>
-    <h4 style="color:#666; margin-top:10px;">@Model</h4>
+
+<div style="text-align:center; padding:60px 20px;">
+    <div style=" display:inline-flex; align-items:center; justify-content:center; width:120px; height:120px; border-radius:50%; background:linear-gradient(145deg,#f0f0f0,#fafafa); box-shadow:5px 5px 10px #dcdcdc,-5px -5px 10px #ffffff; margin-bottom:20px; ">
+        <i class="fa-regular fa-envelope" style="font-size:58px; color:#6c757d;"></i>
+    </div>
+    <h4 style="color:#495057; font-weight:600; margin-bottom:10px;">@Model</h4>
+    <p style="color:#868e96; font-size:15px;">
+        Yeni rezervasyonlar oluşturduğunda burada listelenecektir.
+    </p>
+    <a href="/Member/Reservation/NewReservation" 
+       style="display:inline-block; margin-top:25px; padding:10px 22px; background-color:#5e72e4; color:white; border-radius:12px; text-decoration:none; font-weight:500;">
+        <i class="ri-calendar-line" style="margin-right:6px;"></i> Yeni Rezervasyon Oluştur
+    </a>
 </div>
