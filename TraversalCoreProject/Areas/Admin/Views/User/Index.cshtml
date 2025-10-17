@@ -1,0 +1,93 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card-header bg-white">
+    <h3 class="mb-0 fw-bold text-primary">
+        Kullanıcı Listesi
+    </h3>
+</div>
+<div class="card shadow-sm border-0 rounded-3">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-start">Ad Soyad</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Mail</th>
+                        <th class="text-center">Sil</th>
+                        <th class="text-center">Düzenle</th>
+                        <th class="text-center">Yorumlar</th>
+                        <th class="text-center">Tur Geçmişi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td class="text-center text-secondary">
+                                <i class="bi bi-hash me-1"></i>@count
+                            </td>
+
+                            <td class="text-start fw-semibold">
+                                <i class="bi bi-person-circle text-primary me-2"></i>
+                                @item.Name @item.SurName
+                            </td>
+
+                            <td>
+                                <i class="bi bi-person-badge text-info me-1"></i>
+                                @item.UserName
+                            </td>
+
+                            <td>
+                                <i class="bi bi-envelope text-warning me-1"></i>
+                                @item.Email
+                            </td>
+
+                            <td class="text-center">
+                                <a href="/Admin/User/DeleteUser/@item.Id"
+                                   class="btn btn-sm btn-outline-danger" title="Sil">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+
+                            <td class="text-center">
+                                <a href="/Admin/User/EditUser/@item.Id"
+                                   class="btn btn-sm btn-outline-primary" title="Düzenle">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </td>
+
+                            <td class="text-center">
+                                <a href="/Admin/User/CommentUser/@item.Id"
+                                   class="btn btn-sm btn-outline-secondary" title="Yorumlar">
+                                    <i class="bi bi-chat-dots"></i>
+                                </a>
+                            </td>
+
+                            <td class="text-center">
+                                <a href="/Admin/User/ReservationUser/@item.Id"
+                                   class="btn btn-sm btn-outline-success" title="Tur Geçmişi">
+                                    <i class="bi bi-map"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br />
+<a href="/Admin/User/AddUser" class="btn btn-outline-primary">
+    <i class="bi bi-person-plus me-1"></i> Yeni Kullanıcı Ekle
+</a>
+
+
