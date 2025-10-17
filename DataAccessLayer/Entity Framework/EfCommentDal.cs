@@ -16,5 +16,10 @@ namespace DataAccessLayer.Entity_Framework
         public EfCommentDal(Context context) : base(context)
         {
         }
+
+        public List<Comment> GetCommentListWithDestination()
+        {
+            return _context.Comments.Include(x => x.Destination).ToList();
+        }
     }
 }
