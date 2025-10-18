@@ -62,8 +62,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
-
+app.UseStaticFiles();
+//app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
 app.UseHttpsRedirection();
 app.UseRouting();
 //app.UseMiddleware<ApiKeyMiddleware>();
@@ -85,4 +85,5 @@ app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
+app.UseCustom404Page();
 app.Run();

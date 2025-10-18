@@ -1,13 +1,13 @@
-﻿@model List<Destination>
+﻿@model List<Reservation>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ReservationUser";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     int count = 0;
 }
 
 <div class="card-header bg-white">
     <h3 class="mb-0 fw-bold text-primary">
-        Aktif Tur Rotalarımız
+        Kullanıcının Geçmiş Rezervasyonları
     </h3>
 </div>
 <div class="card shadow-sm border-0 rounded-3">
@@ -17,12 +17,11 @@
                 <thead class="table-light">
                     <tr>
                         <th class="text-center">#</th>
-                        <th class="text-start">Şehir</th>
-                        <th class="text-center">Kapasite</th>
-                        <th class="text-center">Fiyat</th>
-                        <th class="text-center">Sitede Gör</th>
-                        <th class="text-center">Sil</th>
-                        <th class="text-center">Güncelle</th>
+                        <th class="text-start">Ad Soyad</th>
+                        <th class="text-center">Lokasyon</th>
+                        <th class="text-center">Kişi Sayısı</th>
+                        <th class="text-center">Tarih</th>
+                        <th class="text-center">Detaylar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,29 +34,24 @@
                                 @count
                             </td>
                             <td class="text-start">
+                                <i class="bi bi-people text-primary me-1"></i>
+                                @item.AppUser.Name @item.AppUser.SurName
+                            </td>
+                            <td class="text-center">
                                 <i class="bi bi-geo-alt text-danger me-1"></i>
-                                @item.City
+                                @item.Destination.City
                             </td>
                             <td class="text-center">
                                 <i class="bi bi-people text-primary me-1"></i>
-                                @item.Capacity
+                                @item.NumberOfPeople
                             </td>
                             <td class="text-center">
-                                <i class="bi bi-cash-stack text-success me-1"></i>
-                                <span class="badge bg-success">@item.Price ₺</span>
+                                <i class="bi bi-calendar-date text-success me-1"></i>
+                                @item.ReservationDate.ToString("dd-MM-yy")
                             </td>
-
                             <td class="text-center">
                                 <a href="/Destination/DestinationDetails/@item.DestinationId" class="btn btn-sm btn-outline-info">
                                     <i class="bi bi-eye"></i> Görüntüle
-                                </a>
-                            </td>
-                            <td class="text-center">
-                                <button type="button" onclick="confirmDelete('/Admin/Destination/DeleteDestination/@item.DestinationId')" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                            </td>
-                            <td class="text-center">
-                                <a href="/Admin/Destination/UpdateDestination/@item.DestinationId" class="btn btn-outline-primary" title="Güncelle">
-                                    <i class="bi bi-pencil-square"></i>
                                 </a>
                             </td>
                         </tr>

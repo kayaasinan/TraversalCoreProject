@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProject.Areas.Admin.Controllers
@@ -7,15 +8,44 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
     public class UserController : Controller
     {
         private readonly IAppUserService _appUserService;
+        private readonly IReservationService _reservationService;
 
-        public UserController(IAppUserService appUserService)
+        public UserController(IAppUserService appUserService, IReservationService reservationService)
         {
             _appUserService = appUserService;
+            _reservationService = reservationService;
         }
 
         public IActionResult Index()
         {
-            var values=_appUserService.TGetList();
+            var values = _appUserService.TGetList();
+            return View(values);
+        }
+        public IActionResult DeleteUser(int id)
+        {
+            var values = _appUserService.TGetById(id);
+            _appUserService.TDelete(values);
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult EditUser(int id)
+        {
+            var values = _appUserService.TGetById(id);
+            return View(values);
+        }
+        [HttpPost]
+        public IActionResult EditUser(AppUser appUser)
+        {
+            _appUserService.TUpdate(appUser);
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult CommentUser(int id)
+        {
+            var values = _appUserService.TGetList();
+            return View();
+        }
+        public IActionResult ReservationUser(int id)
+        {
+            var values = _reservationService.TGetListWithReservationByAccepted(id);
             return View(values);
         }
     }
