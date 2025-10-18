@@ -1,0 +1,68 @@
+﻿@model List<Guide>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card-header bg-white">
+    <h3 class="mb-0 fw-bold text-primary">
+        Rehberlerimiz
+    </h3>
+</div>
+<div class="card shadow-sm border-0 rounded-3">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-start">Görsel</th>
+                        <th class="text-center">Ad Soyad</th>
+                        <th class="text-center">Açıklama</th>
+                        <th class="text-center">Durum</th>
+                        <th class="text-center">Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td class="text-center">
+                                @count
+                            </td>
+                            <td class="text-start">
+                               <img src="@item.Image" height="50" width="50" class="rounded-circle" />
+                            </td>
+                            <td class="text-center">
+                                <i class="bi bi-people text-primary me-1"></i>
+                                @item.Name
+                            </td>
+                            <td class="text-center">
+                                <i class="bi bi-geo-alt text-primary me-1"></i>
+                                @item.Description
+                            </td>
+
+                            <td class="text-center">
+                                <a href="/Admin/Guide/ChangeStatus/@item.GuideId"  class="btn @(item.Status ? "btn-outline-danger" : "btn-outline-success") ms-2" title="Durumu Değiştir">
+                                    @(item.Status ? "Pasif Yap" : "Aktif Yap")
+                                </a>
+                            </td>
+
+
+                            <td class="text-center">
+                                <a href="/Admin/Guide/EditGuide/@item.GuideId" class="btn btn-outline-primary" title="Düzenle">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<br />
+<a href="/Admin/Guide/AddGuide" class="btn btn-outline-primary">Yeni Rehber Ekle</a>
+

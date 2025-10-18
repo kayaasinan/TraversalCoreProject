@@ -30,7 +30,12 @@ builder.Services.AddMvc(config =>
     config.Filters.Add(new AuthorizeFilter(policy));
 });
 
-
+builder.Services.AddLogging(x =>
+{
+    x.ClearProviders();
+    x.SetMinimumLevel(LogLevel.Debug);
+    x.AddDebug();
+});
 
 var businessAssembly = Assembly.GetAssembly(typeof(DestinationManager));
 var dataAccessAssembly = Assembly.GetAssembly(typeof(EfDestinationDal));
