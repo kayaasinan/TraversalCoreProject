@@ -17,7 +17,7 @@ namespace TraversalCoreProject.Controllers
 
         public IActionResult Index()
         {
-            DateTime date = Convert.ToDateTime(DateTime.UtcNow.ToLongDateString());
+            DateTime date = DateTime.UtcNow.ToLocalTime();
             _logger.LogInformation(date + " Index sayfasý çaðrýldý");
             return View();
         }

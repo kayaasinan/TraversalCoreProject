@@ -1,11 +1,10 @@
-using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
-using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Entity_Framework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using OfficeOpenXml;
 using System.Reflection;
 using TraversalCoreProject.Middleware;
 using TraversalCoreProject.Validations;
@@ -36,6 +35,7 @@ builder.Services.AddLogging(x =>
     x.SetMinimumLevel(LogLevel.Debug);
     x.AddDebug();
 });
+ExcelPackage.License.SetNonCommercialPersonal("Sinan Kaya");
 
 var businessAssembly = Assembly.GetAssembly(typeof(DestinationManager));
 var dataAccessAssembly = Assembly.GetAssembly(typeof(EfDestinationDal));
@@ -58,6 +58,14 @@ foreach (var type in dataAccessAssembly.GetTypes()
 
 
 var app = builder.Build();
+
+var loggerFactory = app.Services.GetRequiredService<ILoggerFactory>();
+
+var path = Path.Combine(Directory.GetCurrentDirectory(), "Logs");
+if (!Directory.Exists(path))
+    Directory.CreateDirectory(path);
+
+loggerFactory.AddFile($"{path}/Log1.txt");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
