@@ -50,9 +50,7 @@
 
                
                             <td class="text-center">
-                                <a href="/Admin/Comment/DeleteComment/@item.CommentId" class="btn btn-sm btn-outline-danger" title="Sil">
-                                    <i class="bi bi-trash"></i>
-                                </a>
+                                <button type="button" onclick="confirmDelete('/Admin/Comment/DeleteComment/@item.CommentId')" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                             </td>
               
                         </tr>
@@ -62,6 +60,5 @@
         </div>
     </div>
 </div>
-
 
 
