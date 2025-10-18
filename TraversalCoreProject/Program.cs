@@ -1,7 +1,10 @@
 using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Entity_Framework;
 using EntityLayer.Concrete;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using OfficeOpenXml;
@@ -21,6 +24,10 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
   .AddErrorDescriber<CustomIdentityValidator>();
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddFluentValidationAutoValidation()
+                .AddFluentValidationClientsideAdapters()
+                .AddValidatorsFromAssembly(typeof(GuideValidator).Assembly);
 builder.Services.AddMvc(config =>
 {
     var policy = new AuthorizationPolicyBuilder()

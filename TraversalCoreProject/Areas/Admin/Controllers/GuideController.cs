@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.ValidationRules;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +27,8 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddGuide(Guide guide)
         {
+            if (!ModelState.IsValid) return View(guide);
+
             _guideService.TAdd(guide);
             return RedirectToAction(nameof(Index));
         }
@@ -37,6 +40,8 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult EditGuide(Guide guide)
         {
+            if (!ModelState.IsValid) return View(guide);
+
             _guideService.TUpdate(guide);
             return RedirectToAction(nameof(Index));
         }

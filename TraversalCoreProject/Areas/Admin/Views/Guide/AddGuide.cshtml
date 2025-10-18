@@ -13,22 +13,28 @@
     <div class="form-group">
         @Html.Label("Gösel")
         <input type="text" asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
     </div>
     <div class="form-group">
         @Html.Label("Ad Soyad")
         <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="form-group">
         @Html.Label("Açıklama")
         <textarea cols="30" rows="5" asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     <div class="form-group">
         @Html.Label("Twitter Url")
         <input type="text" asp-for="XUrl" class="form-control" />
+        <span asp-validation-for="XUrl" class="text-danger"></span>
     </div>
     <div class="form-group">
         @Html.Label("Instagram Url")
         <input type="text" asp-for="InstagramUrl" class="form-control" />
+        <span asp-validation-for="InstagramUrl" class="text-danger"></span>
+       
     </div>
     <button class="btn btn-outline-primary">Oluştur</button>
 </form>
