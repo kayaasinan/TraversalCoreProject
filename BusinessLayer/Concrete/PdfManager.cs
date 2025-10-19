@@ -33,17 +33,13 @@ namespace BusinessLayer.Concrete
             table.AddCell("Rezervasyon Tarihi");
 
            
-            var reservations = _context.Reservations
-                .Include(x => x.AppUser)
-                .Include(x => x.Destination)
-                .Select(x => new
+            var reservations = _context.Reservations.Include(x => x.AppUser).Include(x => x.Destination).Select(x => new
                 {
                     FullName = x.AppUser.Name + " " + x.AppUser.SurName,
                     Destination = x.Destination.City,
                     PeopleCount = x.NumberOfPeople,
                     Date = x.ReservationDate
-                })
-                .ToList();
+                }).ToList();
 
        
             foreach (var item in reservations)
