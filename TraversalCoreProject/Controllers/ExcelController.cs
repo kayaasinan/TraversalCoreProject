@@ -20,7 +20,6 @@ namespace TraversalCoreProject.Controllers
             return File("/ExcelReports/StaticReport.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","StaticReport.xlsx");
         }
 
-     
         public IActionResult DestinationExcelReport()
         {
             _excelService.CreateDestinationExcelReport();

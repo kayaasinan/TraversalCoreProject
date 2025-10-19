@@ -16,5 +16,15 @@ namespace DataAccessLayer.Entity_Framework
         public EfGuideDal(Context context) : base(context)
         {
         }
+
+        public void ChangeGuideStatus(int id)
+        {
+            var values = _context.Guides.Find(id);
+            if (values != null)
+            {
+                values.Status = !values.Status;
+                Update(values);
+            }
+        }
     }
 }

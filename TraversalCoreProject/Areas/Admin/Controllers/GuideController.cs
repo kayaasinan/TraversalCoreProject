@@ -45,5 +45,10 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
             _guideService.TUpdate(guide);
             return RedirectToAction("Index", "Guide", new { area = "Admin" });
         }
+        public IActionResult ChangeStatus(int id)
+        {
+            _guideService.TChangeStatus(id);
+            return RedirectToAction("Index", "Guide", new { area = "Admin" });
+        }
     }
 }
