@@ -21,6 +21,7 @@
                         <th class="text-center">Ad Soyad</th>
                         <th class="text-center">Açıklama</th>
                         <th class="text-center">Durum</th>
+                        <th class="text-center">Sil</th>
                         <th class="text-center">Düzenle</th>
                     </tr>
                 </thead>
@@ -49,8 +50,9 @@
                                     @(item.Status ? "Pasif Yap" : "Aktif Yap")
                                 </a>
                             </td>
-
-
+                            <td class="text-center">
+                                <button type="button" onclick="confirmDelete('/Admin/Guide/DeleteGuide/@item.GuideId')" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                            </td>
                             <td class="text-center">
                                 <a href="/Admin/Guide/EditGuide/@item.GuideId" class="btn btn-outline-primary" title="Düzenle">
                                     <i class="bi bi-pencil-square"></i>

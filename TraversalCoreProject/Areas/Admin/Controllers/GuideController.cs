@@ -32,9 +32,16 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
             _guideService.TAdd(guide);
             return RedirectToAction("Index", "Guide", new { area = "Admin" });
         }
+        public IActionResult DeleteGuide(int id)
+        {
+            var values = _guideService.TGetById(id);
+            if (values == null) return NotFound();
+            _guideService.TDelete(values);
+            return RedirectToAction("Index", "Guide", new { area = "Admin" });
+        }
         public IActionResult EditGuide(int id)
         {
-            var values=_guideService.TGetById(id);
+            var values = _guideService.TGetById(id);
             return View(values);
         }
         [HttpPost]
