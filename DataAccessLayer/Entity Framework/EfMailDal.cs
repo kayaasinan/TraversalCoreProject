@@ -2,6 +2,7 @@
 using DTOLayer.DTOs;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using MimeKit;
 
 namespace DataAccessLayer.Entity_Framework
@@ -9,10 +10,12 @@ namespace DataAccessLayer.Entity_Framework
     public class EfMailDal : IMailDal
     {
         private readonly IConfiguration _configuration;
+        private readonly ILogger _logger;
 
-        public EfMailDal(IConfiguration configuration)
+        public EfMailDal(IConfiguration configuration, ILogger logger)
         {
             _configuration = configuration;
+            _logger = logger;
         }
 
         public void SendMail(MailRequestDTO mailRequest)
@@ -20,7 +23,7 @@ namespace DataAccessLayer.Entity_Framework
             var mailSettings = _configuration.GetSection("MailSettings");
 
             if (string.IsNullOrEmpty(mailSettings["Mail"]) || string.IsNullOrEmpty(mailSettings["Password"]))
-                throw new Exception("MailSettings eksik veya hatalı yapılandırılmış!");
+                _logger.LogWarning("MailSettings eksik veya hatalı yapılandırılmış!");
 
             string mail = mailSettings["Mail"]!;
             string displayName = mailSettings["DisplayName"]!;
