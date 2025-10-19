@@ -50,9 +50,9 @@ namespace TraversalCoreProject.Controllers
             using var workBook = new XLWorkbook();
             var workSheet = workBook.Worksheets.Add("Tur Listesi");
             workSheet.Cell(1, 1).Value = "Şehir";
-            workSheet.Cell(1, 1).Value = "Konaklama Süresi";
-            workSheet.Cell(1, 1).Value = "Fiyat";
-            workSheet.Cell(1, 1).Value = "Kapasite";
+            workSheet.Cell(1, 2).Value = "Konaklama Süresi";
+            workSheet.Cell(1, 3).Value = "Fiyat";
+            workSheet.Cell(1, 4).Value = "Kapasite";
 
             int rowCount = 2;
 

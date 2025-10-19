@@ -25,7 +25,7 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
         {
             var values = _appUserService.TGetById(id);
             _appUserService.TDelete(values);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Destination", new { area = "Admin" });
         }
         public IActionResult EditUser(int id)
         {
@@ -36,7 +36,7 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
         public IActionResult EditUser(AppUser appUser)
         {
             _appUserService.TUpdate(appUser);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Destination", new { area = "Admin" });
         }
         public IActionResult CommentUser(int id)
         {

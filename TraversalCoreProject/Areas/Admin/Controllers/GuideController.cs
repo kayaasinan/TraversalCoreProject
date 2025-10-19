@@ -30,7 +30,7 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
             if (!ModelState.IsValid) return View(guide);
 
             _guideService.TAdd(guide);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Guide", new { area = "Admin" });
         }
         public IActionResult EditGuide(int id)
         {
@@ -43,7 +43,7 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
             if (!ModelState.IsValid) return View(guide);
 
             _guideService.TUpdate(guide);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Guide", new { area = "Admin" });
         }
     }
 }

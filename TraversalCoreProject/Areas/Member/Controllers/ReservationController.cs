@@ -62,7 +62,7 @@ namespace TraversalCoreProject.Areas.Member.Controllers
             reservation.AppUserId = user.Id;
             reservation.Status = ReservationStatus.OnayBekliyor;
             _reservationService.TAdd(reservation);
-            return RedirectToAction("MyCurrentReservation");
+            return RedirectToAction("MyCurrentReservation", "Reservation", new { area = "Member" });
         }
     }
 }
