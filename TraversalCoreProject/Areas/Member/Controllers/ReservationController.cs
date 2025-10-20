@@ -61,7 +61,7 @@ namespace TraversalCoreProject.Areas.Member.Controllers
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             reservationDto.AppUserId = user.Id;
-            reservationDto.Status = "Onay Bekliyor";
+            reservationDto.Status = "OnayBekliyor";
             _reservationService.TAdd(reservationDto);
             return RedirectToAction("MyCurrentReservation", "Reservation", new { area = "Member" });
         }

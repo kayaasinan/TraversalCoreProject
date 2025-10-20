@@ -3,11 +3,6 @@ using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using DTOLayer.DTOs.DestinationDTOs;
 using EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {

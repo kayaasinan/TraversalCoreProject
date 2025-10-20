@@ -25,6 +25,7 @@ namespace BusinessLayer.Concrete
         public void TAdd(ReservationDto dto)
         {
             var entity = _mapper.Map<Reservation>(dto);
+     
             _reservationDal.Insert(entity);
         }
 

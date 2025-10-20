@@ -42,7 +42,7 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
         public IActionResult CommentUser(int id)
         {
             var values = _appUserService.TGetList();
-            return View();
+            return View(values);
         }
         public IActionResult ReservationUser(int id)
         {

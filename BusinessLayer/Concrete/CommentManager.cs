@@ -2,12 +2,7 @@
 using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using DTOLayer.DTOs.CommentDTOs;
-using EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Comment = EntityLayer.Concrete.Comment;
 
 namespace BusinessLayer.Concrete
 {
@@ -52,14 +47,17 @@ namespace BusinessLayer.Concrete
             return _mapper.Map<CommentDto>(entity);
         }
 
-        public List<Comment> TGetCommentListWithDestination()
+        public List<CommentDto> TGetCommentListWithDestination()
         {
-            return _commentDal.GetCommentListWithDestination();
+            var entities = _commentDal.GetCommentListWithDestination();
+            return _mapper.Map<List<CommentDto>>(entities);
+
         }
 
-        public List<Comment> TGetDestinationById(int id)
+        public List<CommentDto> TGetDestinationById(int id)
         {
-            return _commentDal.GetListByFilter(x => x.DestinationId == id);
+            var entity= _commentDal.GetListByFilter(x => x.DestinationId == id);
+            return _mapper.Map<List<CommentDto>>(entity);
         }
 
 

@@ -24,6 +24,7 @@ namespace DataAccessLayer.Repository
 
         public void Delete(T t)
         {
+            _context.ChangeTracker.Clear();
             _context.Remove(t);
             _context.SaveChanges();
         }
@@ -35,7 +36,7 @@ namespace DataAccessLayer.Repository
 
         public List<T> GetList()
         {
-            return _table.ToList();
+            return _table.AsNoTracking().ToList();
         }
 
         public List<T> GetListByFilter(Expression<Func<T, bool>> filter)
@@ -51,6 +52,7 @@ namespace DataAccessLayer.Repository
 
         public void Update(T t)
         {
+            _context.ChangeTracker.Clear();
             _context.Update(t);
             _context.SaveChanges();
         }

@@ -12,7 +12,7 @@ namespace DTOLayer.DTOs.ReservationDTOs
         public int AppUserId { get; set; }
         public int DestinationId { get; set; }
         public string? DestinationCity { get; set; }
-        public string? AppUserName { get; set; }
+        public string? AppUserFullName { get; set; }
         public int NumberOfPeople { get; set; }
         public DateTime ReservationDate { get; set; }
         public string? Notes { get; set; }

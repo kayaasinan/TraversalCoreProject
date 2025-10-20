@@ -1,7 +1,5 @@
 ﻿using BusinessLayer.Abstract;
-using BusinessLayer.Concrete;
-using DataAccessLayer.Entity_Framework;
-using EntityLayer.Concrete;
+using DTOLayer.DTOs.DestinationDTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProject.Controllers
@@ -27,7 +25,7 @@ namespace TraversalCoreProject.Controllers
             return View(values);
         }
         [HttpPost]
-        public IActionResult DestinationDetails(Destination d)
+        public IActionResult DestinationDetails(DestinationDto d)
         {
             return View();
         }

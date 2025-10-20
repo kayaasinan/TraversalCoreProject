@@ -1,4 +1,5 @@
-﻿@model List<Reservation>
+﻿@using DTOLayer.DTOs.ReservationDTOs
+@model List<ReservationDto>
 @{
     ViewData["Title"] = "ReservationUser";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -35,11 +36,11 @@
                             </td>
                             <td class="text-start">
                                 <i class="bi bi-people text-primary me-1"></i>
-                                @item.AppUser.Name @item.AppUser.SurName
+                                @item.AppUserFullName
                             </td>
                             <td class="text-center">
                                 <i class="bi bi-geo-alt text-danger me-1"></i>
-                                @item.Destination.City
+                                @item.DestinationCity
                             </td>
                             <td class="text-center">
                                 <i class="bi bi-people text-primary me-1"></i>

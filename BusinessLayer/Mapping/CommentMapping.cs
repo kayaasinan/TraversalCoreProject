@@ -15,8 +15,10 @@ namespace BusinessLayer.Mapping
         public CommentMapping()
         {
             CreateMap<Comment, CommentDto>()
-             .ForMember(dest => dest.DestinationCity, opt => opt.MapFrom(src => src.Destination.City)).ReverseMap()
-             .ForPath(dest => dest.Destination.City, opt => opt.Ignore());
+                .ForMember(dest => dest.DestinationCity, opt => opt.MapFrom(src => src.Destination.City))
+                .ReverseMap()
+                .ForMember(dest => dest.Destination, opt => opt.Ignore());
         }
+
     }
 }
