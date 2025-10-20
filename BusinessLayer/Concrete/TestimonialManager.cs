@@ -1,5 +1,7 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DTOLayer.DTOs.TestimanialDTOs;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,36 +13,44 @@ namespace BusinessLayer.Concrete
 {
     public class TestimonialManager : ITestimonialService
     {
-        ITestimonialDal _testimonialDal;
+        private readonly ITestimonialDal _testimonialDal;
+        private readonly IMapper _mapper;
 
-        public TestimonialManager(ITestimonialDal testimonialDal)
+        public TestimonialManager(ITestimonialDal testimonialDal, IMapper mapper)
         {
             _testimonialDal = testimonialDal;
+            _mapper = mapper;
         }
 
-        public void TAdd(Testimonial t)
+        public void TAdd(TestimonialDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<Testimonial>(dto);
+            _testimonialDal.Insert(entity);
         }
 
-        public void TDelete(Testimonial t)
+        public void TDelete(TestimonialDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<Testimonial>(dto);
+            _testimonialDal.Delete(entity);
         }
 
-        public Testimonial TGetById(int id)
+        public void TUpdate(TestimonialDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<Testimonial>(dto);
+            _testimonialDal.Update(entity);
         }
 
-        public List<Testimonial> TGetList()
+        public List<TestimonialDto> TGetList()
         {
-            return _testimonialDal.GetList();
+            var entities = _testimonialDal.GetList();
+            return _mapper.Map<List<TestimonialDto>>(entities);
         }
 
-        public void TUpdate(Testimonial t)
+        public TestimonialDto TGetById(int id)
         {
-            throw new NotImplementedException();
+            var entity = _testimonialDal.GetById(id);
+            return _mapper.Map<TestimonialDto>(entity);
         }
+
     }
 }

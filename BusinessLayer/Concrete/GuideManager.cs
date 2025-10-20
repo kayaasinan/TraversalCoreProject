@@ -1,5 +1,7 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DTOLayer.DTOs.GuideDTOs;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,41 +13,48 @@ namespace BusinessLayer.Concrete
 {
     public class GuideManager : IGuideService
     {
-        IGuideDal _guideDal;
+        private readonly IGuideDal _guideDal;
+        private readonly IMapper _mapper;
 
-        public GuideManager(IGuideDal guideDal)
+        public GuideManager(IGuideDal guideDal, IMapper mapper)
         {
             _guideDal = guideDal;
+            _mapper = mapper;
         }
-
-        public void TAdd(Guide t)
+        public void TAdd(GuideDto dto)
         {
-            _guideDal.Insert(t);
+            var entity = _mapper.Map<Guide>(dto);
+            _guideDal.Insert(entity);
         }
 
         public void TChangeStatus(int id)
         {
-           _guideDal.ChangeGuideStatus(id);
+            _guideDal.ChangeGuideStatus(id);
         }
 
-        public void TDelete(Guide t)
+        public void TDelete(GuideDto dto)
         {
-            _guideDal.Delete(t);
+            var entity = _mapper.Map<Guide>(dto);
+            _guideDal.Delete(entity);
         }
 
-        public Guide TGetById(int id)
+        public GuideDto TGetById(int id)
         {
-            return _guideDal.GetById(id);
+            var entity = _guideDal.GetById(id);
+            return _mapper.Map<GuideDto>(entity);
         }
 
-        public List<Guide> TGetList()
+        public List<GuideDto> TGetList()
         {
-           return _guideDal.GetList();
+            var entities = _guideDal.GetList();
+            return _mapper.Map<List<GuideDto>>(entities);
         }
 
-        public void TUpdate(Guide t)
+        public void TUpdate(GuideDto dto)
         {
-            _guideDal.Update(t);
+            var entity = _mapper.Map<Guide>(dto);
+            _guideDal.Update(entity);
         }
+
     }
 }

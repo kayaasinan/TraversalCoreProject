@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DTOLayer.DTOs.AppUserDTOs;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,9 +34,9 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
             return View(values);
         }
         [HttpPost]
-        public IActionResult EditUser(AppUser appUser)
+        public IActionResult EditUser(AppUserDto appUserDto)
         {
-            _appUserService.TUpdate(appUser);
+            _appUserService.TUpdate(appUserDto);
             return RedirectToAction("Index", "Destination", new { area = "Admin" });
         }
         public IActionResult CommentUser(int id)

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DTOLayer.DTOs.TestimanialDTOs;
+using FluentValidation;
 
 namespace BusinessLayer.ValidationRules
 {
-    internal class TestimonialValidator
+    public class TestimonialValidator : AbstractValidator<TestimonialDto>
     {
+        public TestimonialValidator()
+        {
+            
+        }
     }
 }

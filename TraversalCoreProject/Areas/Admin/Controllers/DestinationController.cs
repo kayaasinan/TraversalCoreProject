@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DTOLayer.DTOs.DestinationDTOs;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,9 +25,9 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddDestination(Destination destination)
+        public IActionResult AddDestination(DestinationDto destinationDto)
         {
-            _destinationService.TAdd(destination);
+            _destinationService.TAdd(destinationDto);
             return RedirectToAction("Index", "Destination", new { area = "Admin" });
         }
         public IActionResult DeleteDestination(int id)
@@ -41,9 +42,9 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
             return View(values);
         }
         [HttpPost]
-        public IActionResult UpdateDestination(Destination t)
+        public IActionResult UpdateDestination(DestinationDto destinationDto)
         {
-             _destinationService.TUpdate(t);
+             _destinationService.TUpdate(destinationDto);
             return RedirectToAction("Index", "Destination", new { area = "Admin" });
         }
     }

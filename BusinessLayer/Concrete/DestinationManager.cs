@@ -1,5 +1,7 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DTOLayer.DTOs.DestinationDTOs;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,34 +14,42 @@ namespace BusinessLayer.Concrete
     public class DestinationManager : IDestinationService
     {
         private readonly IDestinationDal _destinationDal;
-        public DestinationManager(IDestinationDal destinationDal)
+        private readonly IMapper _mapper;
+
+        public DestinationManager(IDestinationDal destinationDal, IMapper mapper)
         {
             _destinationDal = destinationDal;
+            _mapper = mapper;
         }
 
-        public void TAdd(Destination t)
+        public void TAdd(DestinationDto dto)
         {
-            _destinationDal.Insert(t);
+            var entity = _mapper.Map<Destination>(dto);
+            _destinationDal.Insert(entity);
         }
 
-        public void TDelete(Destination t)
+        public void TDelete(DestinationDto dto)
         {
-            _destinationDal.Delete(t);
+            var entity = _mapper.Map<Destination>(dto);
+            _destinationDal.Delete(entity);
         }
 
-        public Destination TGetById(int id)
+        public void TUpdate(DestinationDto dto)
         {
-           return _destinationDal.GetById(id);
+            var entity = _mapper.Map<Destination>(dto);
+            _destinationDal.Update(entity);
         }
 
-        public List<Destination> TGetList()
+        public List<DestinationDto> TGetList()
         {
-           return _destinationDal.GetList();
+            var entities = _destinationDal.GetList();
+            return _mapper.Map<List<DestinationDto>>(entities);
         }
 
-        public void TUpdate(Destination t)
+        public DestinationDto TGetById(int id)
         {
-            _destinationDal.Update(t);
+            var entity = _destinationDal.GetById(id);
+            return _mapper.Map<DestinationDto>(entity);
         }
     }
 }

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DTOLayer.DTOs.DestinationDTOs;
+using FluentValidation;
 
 namespace BusinessLayer.ValidationRules
 {
-    internal class DestinationValidator
+    public class DestinationValidator : AbstractValidator<DestinationDto>
     {
+        public DestinationValidator()
+        {
+            
+        }
     }
 }

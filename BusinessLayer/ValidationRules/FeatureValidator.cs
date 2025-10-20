@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DTOLayer.DTOs.FeatureDTOs;
+using FluentValidation;
 
 namespace BusinessLayer.ValidationRules
 {
-    internal class FeatureValidator
+    public class FeatureValidator : AbstractValidator<FeatureDto>
     {
+        public FeatureValidator()
+        {
+            
+        }
     }
 }

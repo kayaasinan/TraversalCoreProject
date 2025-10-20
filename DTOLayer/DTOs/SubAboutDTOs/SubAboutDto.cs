@@ -8,5 +8,8 @@ namespace DTOLayer.DTOs.SubAboutDTOs
 {
     public class SubAboutDto
     {
+        public int? SubAboutId { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
     }
 }

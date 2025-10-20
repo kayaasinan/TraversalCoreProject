@@ -1,5 +1,7 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DTOLayer.DTOs.SubAboutDTOs;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,38 +11,45 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class SubAboutManager:ISubAboutService
+    public class SubAboutManager : ISubAboutService
     {
-        ISubAboutDal _subAboutDal;
+        private readonly ISubAboutDal _subAboutDal;
+        private readonly IMapper _mapper;
 
-        public SubAboutManager(ISubAboutDal subAboutDal)
+        public SubAboutManager(ISubAboutDal subAboutDal, IMapper mapper)
         {
             _subAboutDal = subAboutDal;
+            _mapper = mapper;
         }
 
-        public void TAdd(SubAbout t)
+        public void TAdd(SubAboutDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<SubAbout>(dto);
+            _subAboutDal.Insert(entity);
         }
 
-        public void TDelete(SubAbout t)
+        public void TDelete(SubAboutDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<SubAbout>(dto);
+            _subAboutDal.Delete(entity);
         }
 
-        public SubAbout TGetById(int id)
+        public void TUpdate(SubAboutDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<SubAbout>(dto);
+            _subAboutDal.Update(entity);
         }
 
-        public List<SubAbout> TGetList()
+        public List<SubAboutDto> TGetList()
         {
-            return _subAboutDal.GetList();
+            var entities = _subAboutDal.GetList();
+            return _mapper.Map<List<SubAboutDto>>(entities);
         }
 
-        public void TUpdate(SubAbout t)
+        public SubAboutDto TGetById(int id)
         {
-            throw new NotImplementedException();
+            var entity = _subAboutDal.GetById(id);
+            return _mapper.Map<SubAboutDto>(entity);
         }
     }
 }

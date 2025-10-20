@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DTOLayer.DTOs.ReservationDTOs;
+using FluentValidation;
 
 namespace BusinessLayer.ValidationRules
 {
-    internal class ReservationValidator
+    public class ReservationValidator : AbstractValidator<ReservationDto>
     {
+        public ReservationValidator()
+        {
+            
+        }
     }
 }

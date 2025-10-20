@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DTOLayer.DTOs.NewsletterDTOs;
+using FluentValidation;
 
 namespace BusinessLayer.ValidationRules
 {
-    internal class NewsletterValidator
+    public class NewsletterValidator : AbstractValidator<NewsletterDto>
     {
+        public NewsletterValidator()
+        {
+            
+        }
     }
 }

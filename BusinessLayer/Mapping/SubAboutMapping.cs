@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AutoMapper;
+using DTOLayer.DTOs.AboutDTOs;
+using DTOLayer.DTOs.SubAboutDTOs;
+using EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +10,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Mapping
 {
-    internal class SubAboutMapping
+    public class SubAboutMapping : Profile
     {
+        public SubAboutMapping()
+        {
+            CreateMap<SubAbout, SubAboutDto>().ReverseMap();
+        }
     }
 }

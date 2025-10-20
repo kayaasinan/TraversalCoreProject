@@ -1,4 +1,5 @@
 using BusinessLayer.Concrete;
+using BusinessLayer.Mapping;
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Entity_Framework;
@@ -11,6 +12,7 @@ using OfficeOpenXml;
 using System.Reflection;
 using TraversalCoreProject.Middleware;
 using TraversalCoreProject.Validations;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,8 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 
 builder.Services.AddControllersWithViews();
 
+
+builder.Services.AddAutoMapper(typeof(GuideMapping).Assembly);
 builder.Services.AddFluentValidationAutoValidation()
                 .AddFluentValidationClientsideAdapters()
                 .AddValidatorsFromAssembly(typeof(GuideValidator).Assembly);

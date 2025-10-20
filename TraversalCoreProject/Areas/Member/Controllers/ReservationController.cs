@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using DataAccessLayer.Entity_Framework;
+using DTOLayer.DTOs.ReservationDTOs;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -56,12 +57,12 @@ namespace TraversalCoreProject.Areas.Member.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> NewReservation(Reservation reservation)
+        public async Task<IActionResult> NewReservation(ReservationDto reservationDto)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            reservation.AppUserId = user.Id;
-            reservation.Status = ReservationStatus.OnayBekliyor;
-            _reservationService.TAdd(reservation);
+            reservationDto.AppUserId = user.Id;
+            reservationDto.Status = "Onay Bekliyor";
+            _reservationService.TAdd(reservationDto);
             return RedirectToAction("MyCurrentReservation", "Reservation", new { area = "Member" });
         }
     }

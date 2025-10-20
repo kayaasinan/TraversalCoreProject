@@ -1,13 +1,9 @@
-﻿using EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DTOLayer.DTOs.CommentDTOs;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
-    public interface ICommentService : IGenericService<Comment>
+    public interface ICommentService : IGenericService<CommentDto>
     {
         List<Comment> TGetDestinationById(int id);
 

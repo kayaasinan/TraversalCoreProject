@@ -1,4 +1,5 @@
-﻿using EntityLayer.Concrete;
+﻿using DTOLayer.DTOs.Feature2DTOs;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IFeature2Service : IGenericService<Feature2>
+    public interface IFeature2Service : IGenericService<Feature2Dto>
     {
     }
 }

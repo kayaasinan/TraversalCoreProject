@@ -1,46 +1,50 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DTOLayer.DTOs.AboutDTOs;
 using EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
     public class AboutManager : IAboutService
     {
-        IAboutDal _aboutDal;
+        private readonly IAboutDal _aboutDal;
+        private readonly IMapper _mapper;
 
-        public AboutManager(IAboutDal aboutDal)
+        public AboutManager(IAboutDal aboutDal, IMapper mapper)
         {
             _aboutDal = aboutDal;
+            _mapper = mapper;
         }
 
-        public void TAdd(About t)
+        public void TAdd(AboutDto dto)
         {
-            _aboutDal.Insert(t);
+            var entity = _mapper.Map<About>(dto);
+            _aboutDal.Insert(entity);
         }
 
-        public void TDelete(About t)
+        public void TDelete(AboutDto dto)
         {
-            _aboutDal.Delete(t);
+            var entity = _mapper.Map<About>(dto);
+            _aboutDal.Delete(entity);
         }
 
-        public About TGetById(int id)
+        public void TUpdate(AboutDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<About>(dto);
+            _aboutDal.Update(entity);
         }
 
-        public List<About> TGetList()
+        public List<AboutDto> TGetList()
         {
-            return _aboutDal.GetList();
+            var entities = _aboutDal.GetList();
+            return _mapper.Map<List<AboutDto>>(entities);
         }
 
-        public void TUpdate(About t)
+        public AboutDto TGetById(int id)
         {
-            _aboutDal.Update(t);
+            var entity = _aboutDal.GetById(id);
+            return _mapper.Map<AboutDto>(entity);
         }
     }
 }

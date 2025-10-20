@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IGenericService<T>
+    public interface IGenericService<TDto>
     {
-        void TAdd(T t);
-        void TDelete(T t);
-        void TUpdate(T t);
-        List<T> TGetList();
-        T TGetById(int id);
+        void TAdd(TDto dto);
+        void TDelete(TDto dto);
+        void TUpdate(TDto dto);
+        List<TDto> TGetList();
+        TDto TGetById(int id);
 
         //List<T> GetByFilter(Expression<Func<T, bool>> filter);
     }

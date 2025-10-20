@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using BusinessLayer.ValidationRules;
+using DTOLayer.DTOs.GuideDTOs;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,11 +26,11 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddGuide(Guide guide)
+        public IActionResult AddGuide(GuideDto guideDto)
         {
-            if (!ModelState.IsValid) return View(guide);
+            if (!ModelState.IsValid) return View(guideDto);
 
-            _guideService.TAdd(guide);
+            _guideService.TAdd(guideDto);
             return RedirectToAction("Index", "Guide", new { area = "Admin" });
         }
         public IActionResult DeleteGuide(int id)
@@ -45,11 +46,11 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
             return View(values);
         }
         [HttpPost]
-        public IActionResult EditGuide(Guide guide)
+        public IActionResult EditGuide(GuideDto guideDto)
         {
-            if (!ModelState.IsValid) return View(guide);
+            if (!ModelState.IsValid) return View(guideDto);
 
-            _guideService.TUpdate(guide);
+            _guideService.TUpdate(guideDto);
             return RedirectToAction("Index", "Guide", new { area = "Admin" });
         }
         public IActionResult ChangeStatus(int id)

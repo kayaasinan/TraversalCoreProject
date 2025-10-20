@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using DataAccessLayer.Entity_Framework;
+using DTOLayer.DTOs.CommentDTOs;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,11 +24,11 @@ namespace TraversalCoreProject.Controllers
             return PartialView();
         }
         [HttpPost]
-        public IActionResult AddComment(Comment p)
+        public IActionResult AddComment(CommentDto comment)
         {
-            p.CommentDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            p.CommentState = true;
-            _commentService.TAdd(p);
+            comment.CommentDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            comment.CommentState = true;
+            _commentService.TAdd(comment);
             return RedirectToAction("Index","Destination");
         }
     }

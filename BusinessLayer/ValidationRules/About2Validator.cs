@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DTOLayer.DTOs.About2DTOs;
+using FluentValidation;
 
 namespace BusinessLayer.ValidationRules
 {
-    internal class About2Validator
+    public class About2Validator : AbstractValidator<About2Dto>
     {
+        public About2Validator()
+        {
+            
+        }
     }
 }

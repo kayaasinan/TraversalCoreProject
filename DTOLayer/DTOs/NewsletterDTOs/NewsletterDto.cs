@@ -8,5 +8,7 @@ namespace DTOLayer.DTOs.NewsletterDTOs
 {
     public class NewsletterDto
     {
+        public int? NewsletterId { get; set; }
+        public string? Mail { get; set; }
     }
 }

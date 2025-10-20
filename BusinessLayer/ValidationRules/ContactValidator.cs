@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DTOLayer.DTOs.ContactDTOs;
+using FluentValidation;
 
 namespace BusinessLayer.ValidationRules
 {
-    internal class ContactValidator
+    public class ContactValidator : AbstractValidator<ContactDto>
     {
+        public ContactValidator()
+        {
+            
+        }
     }
 }

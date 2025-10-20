@@ -1,5 +1,7 @@
+using AutoMapper;
 using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DTOLayer.DTOs.ReservationDTOs;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,51 +13,103 @@ namespace BusinessLayer.Concrete
 {
     public class ReservationManager : IReservationService
     {
-        IReservationDal _reservationDal;
+        private readonly IReservationDal _reservationDal;
+        private readonly IMapper _mapper;
 
-        public ReservationManager(IReservationDal reservationDal)
+        public ReservationManager(IReservationDal reservationDal, IMapper mapper)
         {
             _reservationDal = reservationDal;
+            _mapper = mapper;
         }
 
-        public List<Reservation> TGetListWithReservationByAccepted(int id)
+        public void TAdd(ReservationDto dto)
         {
-            return _reservationDal.GetListWithReservationByAccepted(id);
+            var entity = _mapper.Map<Reservation>(dto);
+            _reservationDal.Insert(entity);
         }
 
-        public List<Reservation> TGetListWithReservationByPrevious(int id)
+        public void TDelete(ReservationDto dto)
         {
-            return _reservationDal.GetListWithReservationByPrevious(id);
+            var entity = _mapper.Map<Reservation>(dto);
+            _reservationDal.Delete(entity);
         }
 
-        public List<Reservation> TGetListWithReservationByWaitApproval(int id)
+        public void TUpdate(ReservationDto dto)
         {
-            return _reservationDal.GetListWithReservationByWaitApproval(id);
+            var entity = _mapper.Map<Reservation>(dto);
+            _reservationDal.Update(entity);
         }
 
-        public void TAdd(Reservation t)
+        public List<ReservationDto> TGetList()
         {
-            _reservationDal.Insert(t);
+            var entities = _reservationDal.GetList();
+            return _mapper.Map<List<ReservationDto>>(entities);
         }
 
-        public void TDelete(Reservation t)
+        public ReservationDto TGetById(int id)
         {
-            throw new NotImplementedException();
+            var entity = _reservationDal.GetById(id);
+            return _mapper.Map<ReservationDto>(entity);
         }
 
-        public Reservation TGetById(int id)
+        public List<ReservationDto> TGetListWithReservationByAccepted(int id)
         {
-            throw new NotImplementedException();
+            var entities = _reservationDal.GetListWithReservationByAccepted(id);
+            return _mapper.Map<List<ReservationDto>>(entities);
         }
 
-        public List<Reservation> TGetList()
+        public List<ReservationDto> TGetListWithReservationByPrevious(int id)
         {
-            throw new NotImplementedException();
+            var entities = _reservationDal.GetListWithReservationByPrevious(id);
+            return _mapper.Map<List<ReservationDto>>(entities);
         }
 
-        public void TUpdate(Reservation t)
+        public List<ReservationDto> TGetListWithReservationByWaitApproval(int id)
         {
-            throw new NotImplementedException();
+            var entities = _reservationDal.GetListWithReservationByWaitApproval(id);
+            return _mapper.Map<List<ReservationDto>>(entities);
         }
+
+
+
+        //public List<Reservation> TGetListWithReservationByAccepted(int id)
+        //{
+        //    return _reservationDal.GetListWithReservationByAccepted(id);
+        //}
+
+        //public List<Reservation> TGetListWithReservationByPrevious(int id)
+        //{
+        //    return _reservationDal.GetListWithReservationByPrevious(id);
+        //}
+
+        //public List<Reservation> TGetListWithReservationByWaitApproval(int id)
+        //{
+        //    return _reservationDal.GetListWithReservationByWaitApproval(id);
+        //}
+
+        //public void TAdd(Reservation t)
+        //{
+        //    _reservationDal.Insert(t);
+        //}
+
+        //public void TDelete(Reservation t)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public Reservation TGetById(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public List<Reservation> TGetList()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void TUpdate(Reservation t)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
