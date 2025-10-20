@@ -1,4 +1,5 @@
-﻿using EntityLayer.Concrete;
+﻿using DTOLayer.DTOs.AboutDTOs;
+using EntityLayer.Concrete;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ValidationRules
 {
-    public class AboutValidator:AbstractValidator<About>
+    public class AboutValidator:AbstractValidator<AboutDto>
     {
         public AboutValidator()
         {
