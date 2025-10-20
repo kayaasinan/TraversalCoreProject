@@ -1,5 +1,5 @@
 ﻿using DataAccessLayer.Abstract;
-using DTOLayer.DTOs;
+using DTOLayer.DTOs.MailDTOs;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Configuration;
 using MimeKit;

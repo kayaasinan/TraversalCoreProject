@@ -1,6 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
-using DTOLayer.DTOs;
+using DTOLayer.DTOs.MailDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

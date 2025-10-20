@@ -1,5 +1,5 @@
 ﻿using BusinessLayer.Abstract;
-using DTOLayer.DTOs;
+using DTOLayer.DTOs.MailDTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProject.Areas.Admin.Controllers
