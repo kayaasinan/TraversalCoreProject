@@ -1,0 +1,90 @@
+﻿@model IEnumerable<BookingHotelSearchViewModel.Result>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    
+
+<div class="card shadow-sm border-0 rounded-4">
+    <div class="bg-gradient-primary text-white p-4">
+        <h3 class="fw-bold mb-1 d-flex align-items-center">
+            <i class="bi bi-building me-2 fs-3"></i> Paris Otelleri
+        </h3>
+        <p class="text-white-50 mb-0">Paris'te bulunan otellerin güncel puanları ve fiyat bilgileri</p>
+    </div>
+
+    <div class="card-body p-4">
+        <div class="row g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm hotel-card overflow-hidden">
+                        <div class="position-relative">
+                            <span class="badge bg-primary position-absolute top-0 end-0 m-2 fs-6 px-3 py-2">
+                                ⭐ @( (item.reviewScore / 10.0).ToString("0.0") )
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold text-dark">@item.name</h5>
+                            <p class="text-muted mb-2">
+                                <i class="bi bi-geo-alt text-danger me-1"></i>@item.countryCode
+                            </p>
+                            <p class="mb-2">
+                                <span class="fw-semibold text-success">@item.reviewScoreWord</span>
+                                <span class="text-muted">(@item.reviewCount değerlendirme)</span>
+                            </p>
+                            @if (item.priceBreakdown != null)
+                            {
+                                <div class="d-flex align-items-center mt-3">
+                                    <span class="fs-5 fw-bold text-primary">
+                                        @item.priceBreakdown.grossPrice.value.ToString("0.00") @item.currency
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                        <div class="card-footer bg-white border-0 text-end pb-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary rounded-pill">
+                                <i class="bi bi-arrow-right-circle me-1"></i> Detayları Gör
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+        color: #ffffff;
+    }
+
+        .bg-gradient-primary h3 {
+            color: #ffffff !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .bg-gradient-primary p {
+            color: #ffffff !important;
+            opacity: 0.95;
+        }
+
+
+
+    .hotel-card {
+        transition: all 0.25s ease-in-out;
+        border-radius: 1rem;
+    }
+
+    .hotel-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .badge.bg-primary {
+        background: linear-gradient(90deg, #4f46e5 0%, #3b82f6 100%);
+    }
+</style>
+
+
