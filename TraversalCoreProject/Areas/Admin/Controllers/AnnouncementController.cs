@@ -45,6 +45,7 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult UpdateAnnouncement(AnnouncementDto announcement)
         {
+            if (!ModelState.IsValid) return View(announcement);
             _announcementService.TUpdate(announcement);
             return RedirectToAction("Index", "Announcement", new { area = "Admin" });
         }
