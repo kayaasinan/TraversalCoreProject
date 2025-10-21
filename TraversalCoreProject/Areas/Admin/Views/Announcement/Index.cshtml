@@ -1,0 +1,68 @@
+﻿
+@model List<AnnouncementDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card-header bg-white">
+    <h3 class="mb-0 fw-bold text-primary">
+        Duyuru Listesi
+    </h3>
+</div>
+<div class="card shadow-sm border-0 rounded-3">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-start">Başlık</th>
+                        <th class="text-start">İçerik</th>
+                        <th class="text-center">Detaylar</th>
+                        <th class="text-center">Güncelle</th>
+                        <th class="text-center">Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th class="text-center">
+                                @count
+                            </th>
+                            <td class="text-start">
+                                <i class="bi bi-person-fill text-primary me-1"></i>
+                                @item.Title
+                            </td>
+                            <td class="text-start">
+                                <i class="bi bi-chat-dots-fill text-warning me-1"></i>
+                                @((item.Content?.Length > 65 ? item.Content.Substring(0, 65) + "..." : item.Content))
+                            </td>
+                            <td class="text-center">
+                                <a href="/Admin/ContactUs/MessageDetails/@item.AnnouncementId" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-envelope-open-fill me-1"></i>
+                                    Detay
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="/Admin/Announcement/UpdateAnnouncement/@item.AnnouncementId" class="btn btn-outline-primary" title="Güncelle">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <button type="button" onclick="confirmDelete('/Admin/Announcement/DeleteAnnouncement/@item.AnnouncementId')" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<br />
+<a href="/Admin/Announcement/AddAnnouncement" class="btn btn-outline-primary">Duyuru Ekle</a>
+
+

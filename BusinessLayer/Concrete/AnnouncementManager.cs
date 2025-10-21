@@ -13,38 +13,43 @@ namespace BusinessLayer.Concrete
 {
     public class AnnouncementManager : IAnnouncementService
     {
-        private readonly IAnnouncementDal announcementDal;
+        private readonly IAnnouncementDal _announcementDal;
         private readonly IMapper _mapper;
 
         public AnnouncementManager(IAnnouncementDal announcementDal, IMapper mapper)
         {
-            this.announcementDal = announcementDal;
+            _announcementDal = announcementDal;
             _mapper = mapper;
         }
 
         public void TAdd(AnnouncementDto dto)
         {
-            throw new NotImplementedException();
+            var entity=_mapper.Map<Announcement>(dto);
+            _announcementDal.Insert(entity);
         }
 
         public void TDelete(AnnouncementDto dto)
         {
-            throw new NotImplementedException();
+            var entity=_mapper.Map<Announcement>(dto);
+            _announcementDal.Delete(entity);
         }
 
         public AnnouncementDto TGetById(int id)
         {
-            throw new NotImplementedException();
+            var entity=_announcementDal.GetById(id);
+            return _mapper.Map<AnnouncementDto>(entity);
         }
 
         public List<AnnouncementDto> TGetList()
         {
-            throw new NotImplementedException();
+           var entity=_announcementDal.GetList();
+            return _mapper.Map<List<AnnouncementDto>>(entity);
         }
 
         public void TUpdate(AnnouncementDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<Announcement>(dto);
+            _announcementDal.Update(entity);
         }
     }
 }
