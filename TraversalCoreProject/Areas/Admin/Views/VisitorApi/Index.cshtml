@@ -1,0 +1,75 @@
+﻿
+@model List<VisitorViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card-header bg-white">
+    <h3 class="mb-0 fw-bold text-primary">
+        Api Zirayetçi Listesi
+    </h3>
+</div>
+<div class="card shadow-sm border-0 rounded-3">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-start">Ad</th>
+                        <th class="text-start">Soyad</th>
+                        <th class="text-start">Şehir</th>
+                        <th class="text-start">Ülke</th>
+                        <th class="text-start">Mail</th>
+                        <th class="text-center">Güncelle</th>
+                        <th class="text-center">Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th class="text-center">
+                                @count
+                            </th>
+                            <td class="text-start">
+                                <i class="bi bi-person-fill text-primary me-1"></i>
+                                @item.Name
+                            </td>
+                            <td class="text-start">
+                                <i class="bi bi-person-badge-fill text-primary me-1"></i>
+                                @item.Surname
+                            </td>
+                            <td class="text-start">
+                                <i class="bi bi-geo-alt-fill text-success me-1"></i>
+                                @item.City
+                            </td>
+                            <td class="text-start">
+                                <i class="bi bi-globe2 text-info me-1"></i>
+                                @item.Country
+                            </td>
+                            <td class="text-start">
+                                <i class="bi bi-envelope-fill text-danger me-1"></i>
+                                @item.Mail
+                            </td>
+
+                            <td class="text-center">
+                                <a href="/Admin/VisitorApi/UpdateVisitor/@item.VisitorId" class="btn btn-outline-primary" title="Güncelle">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <button type="button" onclick="confirmDelete('/Admin/VisitorApi/DeleteVisitor/@item.VisitorId')" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<br />
+<a href="/Admin/VisitorApi/AddVisitor" class="btn btn-outline-primary">Yeni Zirayetçi Ekle</a>

@@ -48,6 +48,8 @@ builder.Services.AddLogging(x =>
     x.SetMinimumLevel(LogLevel.Debug);
     x.AddDebug();
 });
+builder.Services.AddHttpClient();
+
 ExcelPackage.License.SetNonCommercialPersonal("Sinan Kaya");
 
 var businessAssembly = Assembly.GetAssembly(typeof(DestinationManager));
@@ -68,6 +70,7 @@ foreach (var type in dataAccessAssembly.GetTypes()
     if (interfaceType != null)
         builder.Services.AddScoped(interfaceType, type);
 }
+
 
 
 var app = builder.Build();
