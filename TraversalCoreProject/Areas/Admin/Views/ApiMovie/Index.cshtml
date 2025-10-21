@@ -1,0 +1,54 @@
+﻿@model List<ApiMovieViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card shadow-sm border-0 rounded-4">
+    <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+        <h3 class="fw-bold text-primary mb-0">
+            🎬 IMDb Top 100 Film Listesi
+        </h3>
+        <span class="badge bg-gradient-info text-white px-3 py-2">
+            @Model.Count() Movies
+        </span>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Film Görseli</th>
+                        <th>Adı</th>
+                        <th class="text-center">Yapım Yılı</th>
+                        <th class="text-center">Puan ⭐</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-center fw-bold">@item.rank</td>
+                            <td>
+                                <img src="@item.thumbnail" alt="@item.title" width="60" height="90"
+                                     class="rounded shadow-sm border" />
+                            </td>
+                            <td>
+                                <span class="fw-semibold text-dark">@item.title</span>
+                            </td>
+                            <td class="text-center text-secondary">@item.year</td>
+                            <td class="text-center">
+                                <span class="badge bg-gradient-warning text-dark px-3 py-2">
+                                    @item.rating
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

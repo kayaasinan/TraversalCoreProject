@@ -1,0 +1,96 @@
+﻿@using System.Linq
+@model IEnumerable<BookingExchangeViewModel2.Exchange_Rates>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+    <div class="bg-gradient-primary text-white p-4">
+        <h3 class="fw-bold mb-1 d-flex align-items-center">
+            <i class="bi bi-cash-coin me-2 fs-3"></i> Döviz Kurları Listesi
+        </h3>
+        <p class="text-white-50 mb-0">API üzerinden alınan güncel alış kurları</p>
+    </div>
+
+    <div class="card-body p-4">
+        <div class="table-responsive">
+            <table class="table align-middle table-borderless mb-0">
+                <thead>
+                    <tr class="border-bottom">
+                        <th class="text-center text-secondary fw-bold">#</th>
+                        <th class="fw-bold text-secondary">
+                            <i class="bi bi-currency-exchange me-2 text-primary"></i>Para Birimi
+                        </th>
+                        <th class="text-center fw-bold text-secondary">
+                            <i class="bi bi-cash-stack me-2 text-success"></i>Alış Kuru 💵
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int sira = 1;
+                    }
+                    @foreach (var item in Model)
+                    {
+                        <tr class="shadow-sm border rounded-3 mb-2 bg-light bg-opacity-50 table-row-hover">
+                            <td class="text-center fw-bold text-muted">@sira</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="icon bg-primary bg-opacity-10 text-primary rounded-circle me-2 p-2">
+                                        <i class="bi bi-currency-bitcoin fs-6"></i>
+                                    </div>
+                                    <span class="fw-semibold text-dark fs-6">@item.currency</span>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="bg-white rounded-3 d-inline-block px-3 py-2 shadow-sm fw-semibold text-dark">
+                                    @item.exchange_rate_buy
+                                </div>
+                            </td>
+                        </tr>
+                        sira++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .bg-gradient-primary {
+        background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+        color: #ffffff;
+    }
+
+        .bg-gradient-primary h3 {
+            color: #ffffff !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .bg-gradient-primary p {
+            color: #ffffff !important;
+            opacity: 0.95;
+        }
+
+    .table-row-hover:hover {
+        transform: scale(1.005);
+        background-color: rgba(37, 99, 235, 0.07);
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    td .bg-white {
+        background-color: #f9fafb !important;
+    }
+
+
+    .icon {
+        background: linear-gradient(145deg, #e0f2fe, #f0f9ff);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+</style>
+
+

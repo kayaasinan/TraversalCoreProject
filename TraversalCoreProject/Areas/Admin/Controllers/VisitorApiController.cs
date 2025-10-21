@@ -23,7 +23,6 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
             return _httpClientFactory.CreateClient();
         }
 
-
         public async Task<IActionResult> Index()
         {
             var client = CreateClient();
