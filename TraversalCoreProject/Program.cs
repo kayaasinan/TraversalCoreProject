@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using OfficeOpenXml;
 using System.Reflection;
+using TraversalCoreProject.CQRS.Handlers.DestinationHandlers;
 using TraversalCoreProject.Middleware;
 using TraversalCoreProject.Validations;
 
@@ -29,6 +30,13 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<GetAllDestinationQueryHandler>();
+builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
+builder.Services.AddScoped<CreateDestinationCommandHandler>();
+builder.Services.AddScoped<DeleteDestinationCommandHandler>();
+builder.Services.AddScoped<UpdateDestinationCommandHandler>();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
 builder.Services.AddAutoMapper(typeof(GuideMapping).Assembly);
 builder.Services.AddFluentValidationAutoValidation()

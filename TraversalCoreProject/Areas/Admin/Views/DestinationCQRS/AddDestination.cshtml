@@ -1,0 +1,33 @@
+﻿
+@model CreateDestinationCommand
+@{
+    ViewData["Title"] = "AddDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header bg-white">
+    <h3 class="mb-0 fw-bold text-primary">
+        CQRS Tur Rotaları Ekleme Sayfası
+    </h3>
+</div>
+<form method="post">
+    <div class="form-group">
+        @Html.Label("Lokasyon")
+        <input type="text" asp-for="City" class="form-control" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Gün Gece")
+        <input type="text" asp-for="DayNight" class="form-control" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Price")
+        <input type="text" asp-for="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Kapasite")
+        <input type="text" asp-for="Capacity" class="form-control" />
+    </div>
+    <br />
+    <button class="btn btn-outline-primary">Oluştur</button>
+</form>
+
