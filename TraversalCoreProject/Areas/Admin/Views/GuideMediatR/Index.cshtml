@@ -1,0 +1,56 @@
+﻿
+@model List<GetAllGuideQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card-header bg-white">
+    <h3 class="mb-0 fw-bold text-primary">
+        MediatR Rehber Listesi
+    </h3>
+</div>
+
+<div class="card shadow-sm border-0 rounded-3">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped align-middle mb-0">
+                <thead class="table-light">
+                    <tr> 
+                        <th class="text-center">#</th>
+                        <th class="text-start">Ad Soyad</th>
+                        <th class="text-start">Açıklama</th>
+                        <th class="text-center">Sil</th>
+                        <th class="text-center">Güncelle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th class="text-center">@count</th>
+                            <td class="text-start">@item.Name</td>
+                            <td class="text-start">@item.Description</td>
+                            <td class="text-center">
+                                <button type="button" onclick="confirmDelete('/Admin/GuideMediatR/DeleteGuide/@item.GuideId')" class="btn btn-danger btn-sm">
+                                    Sil
+                                </button>
+                            </td>
+                            <td class="text-center">
+                                <a href="/Admin/GuideMediatR/GetGuides/@item.GuideId" class="btn btn-outline-primary btn-sm">
+                                    Güncelle
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br />
+<a href="/Admin/GuideMediatR/AddGuide" class="btn btn-outline-primary">Yeni Rehber Ekle</a>
+

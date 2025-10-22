@@ -1,0 +1,25 @@
+﻿@model GetGuideByIdQueryResult
+@{
+    ViewData["Title"] = "GetGuides";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header bg-white">
+    <h3 class="mb-0 fw-bold text-primary">
+        MediatR Rehber Bilgisi Düzenleme Sayfası
+    </h3>
+</div>
+<form method="post">
+    <input type="hidden" asp-for="GuideId" />
+    <div class="form-group">
+        @Html.Label("Ad Soyad")
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Açıklama")
+        <input type="text" asp-for="Description" class="form-control" />
+    </div>
+    <br />
+    <button class="btn btn-outline-primary">Güncelle</button>
+</form>
+

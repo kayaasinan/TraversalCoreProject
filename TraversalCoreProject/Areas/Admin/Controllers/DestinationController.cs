@@ -1,11 +1,13 @@
 ﻿using BusinessLayer.Abstract;
 using DTOLayer.DTOs.DestinationDTOs;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+  
     public class DestinationController : Controller
     {
         private readonly IDestinationService _destinationService;
