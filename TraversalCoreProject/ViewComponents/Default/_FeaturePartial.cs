@@ -1,6 +1,4 @@
 ﻿using BusinessLayer.Abstract;
-using BusinessLayer.Concrete;
-using DataAccessLayer.Entity_Framework;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProject.ViewComponents.Default

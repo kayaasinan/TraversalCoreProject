@@ -3,6 +3,7 @@ using BusinessLayer.Mapping;
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Entity_Framework;
+using DataAccessLayer.UnitOfWork;
 using EntityLayer.Concrete;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -63,6 +64,7 @@ ExcelPackage.License.SetNonCommercialPersonal("Sinan Kaya");
 var businessAssembly = Assembly.GetAssembly(typeof(DestinationManager));
 var dataAccessAssembly = Assembly.GetAssembly(typeof(EfDestinationDal));
 
+builder.Services.AddScoped<IUOWDal, UOWDal>();
 foreach (var type in businessAssembly.GetTypes()
              .Where(t => t.IsClass && !t.IsAbstract && t.Name.EndsWith("Manager")))
 {

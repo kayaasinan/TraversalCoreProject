@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.Repository
 {
@@ -10,6 +11,19 @@ namespace DataAccessLayer.Repository
         public GenericUOWRepository(Context context)
         {
             _context = context;
+        }
+
+        public List<T> GetAll()
+        {
+            return _context.Set<T>().AsNoTracking().ToList();
+        }
+
+        public T GetById(int id)
+        {
+            var entity = _context.Set<T>().Find(id);
+            if (entity != null)
+                _context.Entry(entity).State = EntityState.Detached;
+            return entity;
         }
 
         public void Insert(T t)

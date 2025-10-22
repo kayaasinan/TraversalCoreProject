@@ -1,5 +1,9 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.Entity_Framework;
+using DTOLayer.DTOs.FeatureDTOs;
+using DTOLayer.DTOs.GuideDTOs;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,38 +13,46 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class FeatureManager:IFeatureService
+    public class FeatureManager : IFeatureService
     {
-        IFeatureDal _featureDal;
+        private readonly IFeatureDal _featureDal;
+        private readonly IMapper _mapper;
 
-        public FeatureManager(IFeatureDal featureDal)
+
+        public FeatureManager(IFeatureDal featureDal, IMapper mapper)
         {
             _featureDal = featureDal;
+            _mapper = mapper;
         }
 
-        public void TAdd(Feature t)
+        public void TAdd(FeatureDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<Feature>(dto);
+            _featureDal.Insert(entity);
         }
 
-        public void TDelete(Feature t)
+        public void TDelete(FeatureDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<Feature>(dto);
+            _featureDal.Delete(entity);
         }
 
-        public Feature TGetById(int id)
+        public FeatureDto TGetById(int id)
         {
-            throw new NotImplementedException();
+            var entity = _featureDal.GetById(id);
+            return _mapper.Map<FeatureDto>(entity);
         }
 
-        public List<Feature> TGetList()
+        public List<FeatureDto> TGetList()
         {
-            return _featureDal.GetList();
+            var entities = _featureDal.GetList();
+            return _mapper.Map<List<FeatureDto>>(entities);
         }
 
-        public void TUpdate(Feature t)
+        public void TUpdate(FeatureDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<Feature>(dto);
+            _featureDal.Update(entity);
         }
     }
 }
