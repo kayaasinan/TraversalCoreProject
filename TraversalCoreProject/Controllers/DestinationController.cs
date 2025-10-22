@@ -1,9 +1,11 @@
 ﻿using BusinessLayer.Abstract;
 using DTOLayer.DTOs.DestinationDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProject.Controllers
 {
+    [AllowAnonymous]
     public class DestinationController : Controller
     {
 

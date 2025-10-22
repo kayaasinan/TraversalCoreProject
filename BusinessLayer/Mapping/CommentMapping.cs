@@ -10,15 +10,18 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Mapping
 {
-    public class CommentMapping:Profile
+    public class CommentMapping : Profile
     {
         public CommentMapping()
         {
             CreateMap<Comment, CommentDto>()
-                .ForMember(dest => dest.DestinationCity, opt => opt.MapFrom(src => src.Destination.City))
-                .ReverseMap()
-                .ForMember(dest => dest.Destination, opt => opt.Ignore());
-        }
+                            .ForMember(dest => dest.DestinationCity, opt => opt.MapFrom(src => src.Destination.City))
+                            .ForMember(dest => dest.AppUserFullName, opt => opt.MapFrom(src => src.AppUser.Name + " " + src.AppUser.SurName))
+                            .ForMember(dest => dest.AppUserImageUrl, opt => opt.MapFrom(src => src.AppUser.ImageUrl))
+                            .ReverseMap()
+                            .ForMember(dest => dest.Destination, opt => opt.Ignore())
+                            .ForMember(dest => dest.AppUser, opt => opt.Ignore());
 
+        }
     }
 }

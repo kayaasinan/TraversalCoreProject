@@ -60,6 +60,12 @@ namespace BusinessLayer.Concrete
             return _mapper.Map<List<CommentDto>>(entity);
         }
 
+        public List<CommentDto> TGetCommentListWithDestinationAndUser(int id)
+        {
+            var entities = _commentDal.GetCommentListWithDestinationAndUser(id);
+            return _mapper.Map<List<CommentDto>>(entities);
+        }
+
 
         //public List<Comment> TGetCommentListWithDestination()
         //{

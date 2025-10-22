@@ -4,19 +4,19 @@
     Comment List Component
 *@
 <div class="comments mt-5">
-    <h4 class="side-title ">Yorumlar (2)</h4>
+    <h4 class="side-title ">Yorumlar(@ViewBag.commentCount)</h4>
     @foreach (var item in Model)
     {
         <div class="media mt-4">
             <div class="img-circle">
-                <img src="~/Traversal-Liberty/assets/images/c1.jpg" class="img-fluid" alt="...">
+                <img src="@item.AppUserImageUrl" class="img-fluid" alt="...">
             </div>
             <div class="media-body">
 
                 <ul class="time-rply mb-2">
                     <li>
-                        <a href="#URL" class="name mt-0 mb-2 d-block">@item.CommentUser</a>
-                        @item.CommentDate
+                        <a href="#URL" class="name mt-0 mb-2 d-block">@item.AppUserFullName</a>
+                        @(((DateTime)item.CommentDate).ToString("dd-MM-yyy"))
 
                     </li>
                     <li class="reply-last">

@@ -1,4 +1,5 @@
-﻿using DTOLayer.DTOs.ReservationDTOs;
+﻿using DTOLayer.DTOs.CommentDTOs;
+using DTOLayer.DTOs.ReservationDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace DTOLayer.DTOs.AppUserDTOs
         public string? Gender { get; set; }
         public string? FullName { get; set; }
         public List<ReservationDto> Reservations { get; set; } = new();
+        public List<CommentDto> Comments { get; set; } = new();
         public string? UserName { get; set; }
         public string? NormalizedUserName { get; set; }
         public string? Email { get; set; }
