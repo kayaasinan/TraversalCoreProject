@@ -1,11 +1,6 @@
 ﻿using DTOLayer.DTOs.CommentDTOs;
 using DTOLayer.DTOs.GuideDTOs;
 using DTOLayer.DTOs.ReservationDTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTOLayer.DTOs.DestinationDTOs
 {
@@ -23,7 +18,7 @@ namespace DTOLayer.DTOs.DestinationDTOs
         public string? Details1 { get; set; }
         public string? Details2 { get; set; }
         public string? Image2 { get; set; }
-
+        public DateTime Date { get; set; }
         public List<CommentDto> Comments { get; set; }
         public List<ReservationDto> Reservations { get; set; }
 

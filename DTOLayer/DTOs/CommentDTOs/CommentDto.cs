@@ -1,10 +1,5 @@
 ﻿using DTOLayer.DTOs.AppUserDTOs;
 using DTOLayer.DTOs.DestinationDTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTOLayer.DTOs.CommentDTOs
 {
@@ -19,7 +14,6 @@ namespace DTOLayer.DTOs.CommentDTOs
         public DestinationDto Destination { get; set; }
         public int AppUserId { get; set; }
         public AppUserDto AppUser { get; set; }
-        public string? AppUserFullName { get; set; }
         public string? AppUserImageUrl { get; set; }
     }
 }

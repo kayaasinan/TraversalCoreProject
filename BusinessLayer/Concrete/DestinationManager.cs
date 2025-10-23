@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.Entity_Framework;
 using DTOLayer.DTOs.DestinationDTOs;
+using DTOLayer.DTOs.ReservationDTOs;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
@@ -45,6 +47,12 @@ namespace BusinessLayer.Concrete
         {
             var entity = _destinationDal.GetById(id);
             return _mapper.Map<DestinationDto>(entity);
+        }
+
+        public DestinationDto TGetDestinationWithGuide(int id)
+        {
+            var entities = _destinationDal.GetDestinationWithGuide(id);
+            return _mapper.Map<DestinationDto>(entities);
         }
     }
 }

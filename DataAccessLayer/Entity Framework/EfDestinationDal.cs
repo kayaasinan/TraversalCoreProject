@@ -3,11 +3,6 @@ using DataAccessLayer.Concrete;
 using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Entity_Framework
 {
@@ -15,6 +10,12 @@ namespace DataAccessLayer.Entity_Framework
     {
         public EfDestinationDal(Context context) : base(context)
         {
+        }
+
+        public Destination? GetDestinationWithGuide(int id)
+        {
+            var values = _context.Destinations.Where(x => x.DestinationId == id).Include(x => x.Guide).FirstOrDefault();
+            return values == null ? null : values;
         }
     }
 }

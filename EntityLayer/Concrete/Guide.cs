@@ -16,7 +16,8 @@ namespace EntityLayer.Concrete
         public string? Image { get; set; }
         public string? XUrl { get; set; }
         public string? InstagramUrl { get; set; }
+        public string? Description2 { get; set; }
         public bool Status { get; set; }
-        public List<Guide> Guides { get; set; }
+        public List<Destination> Destinations { get; set; }
     }
 }

@@ -4,7 +4,6 @@ using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace TraversalCoreProject.Controllers
 {
@@ -31,7 +30,7 @@ namespace TraversalCoreProject.Controllers
             ViewBag.destID=id;
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             ViewBag.userId = values.Id;
-            var value=_destinationService.TGetById(id);
+            var value=_destinationService.TGetDestinationWithGuide(id);
             return View(value);
         }
         [HttpPost]
