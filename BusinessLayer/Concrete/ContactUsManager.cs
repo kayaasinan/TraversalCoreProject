@@ -2,9 +2,12 @@
 using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using DTOLayer.DTOs.ContactUsDTOs;
+using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BusinessLayer.Concrete
 {
+    [AllowAnonymous]
     public class ContactUsManager : IContactUsService
     {
         private readonly IContactUsDal _contactUsDal;
@@ -35,17 +38,22 @@ namespace BusinessLayer.Concrete
 
         public void TAdd(ContactUsDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<ContactUs>(dto);
+            entity.Status = true;
+            entity.Date = DateTime.Now;
+            _contactUsDal.Insert(entity);
         }
 
         public void TDelete(ContactUsDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<ContactUs>(dto);
+            _contactUsDal.Delete(entity);
         }
 
         public ContactUsDto TGetById(int id)
         {
-            throw new NotImplementedException();
+            var entity = _contactUsDal.GetById(id);
+            return _mapper.Map<ContactUsDto>(entity);
         }
 
         public List<ContactUsDto> TGetList()
