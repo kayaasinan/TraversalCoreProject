@@ -14,12 +14,11 @@ namespace BusinessLayer.Mapping
     {
         public ReservationMapping()
         {
-            CreateMap<Reservation, ReservationDto>().ForMember(dest => dest.AppUserFullName, opt => opt.MapFrom(src => src.AppUser.Name + " " + src.AppUser.SurName))
-                                                    .ForMember(dest => dest.DestinationCity, opt => opt.MapFrom(src => src.Destination.City))
-                                                    .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
+            CreateMap<Reservation, ReservationDto>().ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()))
                                                     .ReverseMap()
-                                                    .ForMember(dest => dest.AppUser, opt => opt.Ignore()) 
-                                                    .ForMember(dest => dest.Destination, opt => opt.Ignore());
+                                                    .ForMember(dest => dest.AppUser, opt => opt.Ignore());
+
+
         }
     }
 }

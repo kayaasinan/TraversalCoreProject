@@ -14,8 +14,9 @@ namespace BusinessLayer.Mapping
     {
         public AppUserMapping()
         {
-            CreateMap<AppUser, AppUserDto>().ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.Name + " " + src.SurName))
-            .ReverseMap();
+            CreateMap<AppUser, AppUserDto>().ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName))
+                                            .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
+                                            .ReverseMap();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DTOLayer.DTOs.CommentDTOs;
+using DTOLayer.DTOs.GuideDTOs;
 using DTOLayer.DTOs.ReservationDTOs;
 using System;
 using System.Collections.Generic;
@@ -25,5 +26,8 @@ namespace DTOLayer.DTOs.DestinationDTOs
 
         public List<CommentDto> Comments { get; set; }
         public List<ReservationDto> Reservations { get; set; }
+
+        public int? GuideId { get; set; }
+        public GuideDto Guide { get; set; }
     }
 }

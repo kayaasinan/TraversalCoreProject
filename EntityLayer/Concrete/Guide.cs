@@ -17,5 +17,6 @@ namespace EntityLayer.Concrete
         public string? XUrl { get; set; }
         public string? InstagramUrl { get; set; }
         public bool Status { get; set; }
+        public List<Guide> Guides { get; set; }
     }
 }

@@ -15,5 +15,6 @@ namespace DTOLayer.DTOs.GuideDTOs
         public string? XUrl { get; set; }
         public string? InstagramUrl { get; set; }
         public bool Status { get; set; }
+        public List<GuideDto> Guides { get; set; }
     }
 }
