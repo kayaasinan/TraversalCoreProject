@@ -1,0 +1,59 @@
+﻿using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
+using SignalRApi.DAL;
+using SignalRApi.Hubs;
+
+namespace SignalRApi.Model
+{
+    public class VisitorService
+    {
+        private readonly Context _context;
+        private readonly IHubContext<VisitorHub> _hubContext;
+
+        public VisitorService(Context context, IHubContext<VisitorHub> hubContext)
+        {
+            _context = context;
+            _hubContext = hubContext;
+        }
+        public IQueryable<Visitor> GetList()
+        {
+            return _context.Visitors.AsQueryable();
+        }
+        public async Task SaveVisitor(Visitor visitor)
+        {
+            await _context.Visitors.AddAsync(visitor);
+            await _context.SaveChangesAsync();
+            await _hubContext.Clients.All.SendAsync("CallVisitorList","aaa"/* GetVisitorChartsList()*/);
+        }
+        public List<VisitorChart> GetVisitorChartsList()
+        {
+            var visitorCharts = new List<VisitorChart>();
+            try
+            {
+                using var connection = _context.Database.GetDbConnection();
+                using var command = connection.CreateCommand();
+
+                command.CommandText = "Select * From crosstab ( 'Select VisitDate,City,DailyVisitorCount From Visitors Order By 1, 2') As ct(VisitDate date,City1 int, City2 int, City3 int, City4 int, City5 int);";
+                command.CommandType = System.Data.CommandType.Text;
+                connection.Open();
+
+                using var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var visitorChart = new VisitorChart();
+                    visitorChart.VisitDate = reader.GetDateTime(0).ToShortDateString();
+                    foreach(ECity city in Enum.GetValues(typeof(ECity)))
+                    {
+                        visitorChart.Counts.Add(reader.GetInt32((int)city));
+                    }
+                    visitorCharts.Add(visitorChart);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ziyaretçi grafiği alınırken hata oluştu.", ex);
+            }
+            return visitorCharts;
+        }
+    }
+}

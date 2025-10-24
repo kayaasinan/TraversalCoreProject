@@ -1,0 +1,6 @@
+@SignalRApiForMSSQL_HostAddress = http://localhost:5058
+
+GET {{SignalRApiForMSSQL_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
