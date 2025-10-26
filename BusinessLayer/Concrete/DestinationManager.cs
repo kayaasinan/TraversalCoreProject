@@ -54,5 +54,11 @@ namespace BusinessLayer.Concrete
             var entities = _destinationDal.GetDestinationWithGuide(id);
             return _mapper.Map<DestinationDto>(entities);
         }
+
+        public List<DestinationDto> TGetLast4Destination()
+        {
+            var entities= _destinationDal.GetLast4Destination();
+            return _mapper.Map<List<DestinationDto>>(entities);
+        }
     }
 }

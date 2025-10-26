@@ -26,5 +26,10 @@ namespace DataAccessLayer.Entity_Framework
                 Update(values);
             }
         }
+
+        public List<Guide> GetLast5Guide()
+        {
+           return _context.Guides.OrderByDescending(x=>x.GuideId).Take(5).ToList();
+        }
     }
 }

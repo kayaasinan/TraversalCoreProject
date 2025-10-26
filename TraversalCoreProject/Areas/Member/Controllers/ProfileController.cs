@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using TraversalCoreProject.Areas.Member.Models;
 
 namespace TraversalCoreProject.Areas.Member.Controllers
@@ -14,11 +13,11 @@ namespace TraversalCoreProject.Areas.Member.Controllers
     {
         public async Task<IActionResult> Index()
         {
-            var user = await _userManager.FindByNameAsync(User?.Identity?.Name)??new AppUser();
+            var user = await _userManager.FindByNameAsync(User?.Identity?.Name) ?? new AppUser();
             var model = new UserEditViewModel();
             model.name = user.Name;
             model.surname = user.SurName;
-            model.phoneNumber = user.PhoneNumber??string.Empty;
+            model.phoneNumber = user.PhoneNumber ?? string.Empty;
             model.mail = user.Email;
             model.imageUrl = user.ImageUrl;
             return View(model);
@@ -37,7 +36,7 @@ namespace TraversalCoreProject.Areas.Member.Controllers
                 {
                     await model.Image.CopyToAsync(stream);
                 }
-                user.ImageUrl = imageName;
+                user.ImageUrl = "userImages" + imageName;
 
             }
             user.Name = model.name;

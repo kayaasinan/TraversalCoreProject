@@ -14,7 +14,7 @@ namespace TraversalCoreProject.ViewComponents.MemberDashboard
 
         public IViewComponentResult Invoke()
         {
-            var values=_guideService.TGetList();
+            var values=_guideService.TGetLast5Guide();
             return View(values);
         }
     }

@@ -1,9 +1,11 @@
 ﻿using BusinessLayer.Abstract;
 using DTOLayer.DTOs.ContactUsDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProject.Controllers
 {
+    [AllowAnonymous]
     public class ContactController : Controller
     {
         private readonly IContactUsService _contactUsService;

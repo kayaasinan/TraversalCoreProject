@@ -10,5 +10,6 @@ namespace DataAccessLayer.Abstract
     public interface IGuideDal : IGenericDal<Guide>
     {
         void ChangeGuideStatus(int id);
+        public List<Guide> GetLast5Guide();
     }
 }

@@ -4,6 +4,7 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Entity_Framework;
 using DataAccessLayer.UnitOfWork;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using EntityLayer.Concrete;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -82,7 +83,10 @@ foreach (var type in dataAccessAssembly.GetTypes()
     if (interfaceType != null)
         builder.Services.AddScoped(interfaceType, type);
 }
-
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Login/SignIn/";
+});
 
 
 var app = builder.Build();
