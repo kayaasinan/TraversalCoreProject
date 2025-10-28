@@ -8,5 +8,8 @@ namespace BusinessLayer.Abstract
         List<ReservationDto> TGetListWithReservationByWaitApproval(int id);
         List<ReservationDto> TGetListWithReservationByPrevious(int id);
         List<ReservationDto> TGetListWithReservationByAccepted(int id);
+        List<ReservationDto> TGetCanceledReservationsByAdmin(int id);
+        public List<ReservationDto> TGetAllReservationsWithDetails();
+        public void TChangeReservationStatus(int id, ReservationStatus newStatus);
     }
 }

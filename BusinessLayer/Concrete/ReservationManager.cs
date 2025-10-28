@@ -71,46 +71,21 @@ namespace BusinessLayer.Concrete
             return _mapper.Map<List<ReservationDto>>(entities);
         }
 
+        public List<ReservationDto> TGetCanceledReservationsByAdmin(int id)
+        {
+            var entities = _reservationDal.GetCanceledReservationsByAdmin(id);
+            return _mapper.Map<List<ReservationDto>>(entities);
+        }
 
+        public List<ReservationDto> TGetAllReservationsWithDetails()
+        {
+            var entities = _reservationDal.GetAllReservationsWithDetails();
+            return _mapper.Map<List<ReservationDto>>(entities);
+        }
 
-        //public List<Reservation> TGetListWithReservationByAccepted(int id)
-        //{
-        //    return _reservationDal.GetListWithReservationByAccepted(id);
-        //}
-
-        //public List<Reservation> TGetListWithReservationByPrevious(int id)
-        //{
-        //    return _reservationDal.GetListWithReservationByPrevious(id);
-        //}
-
-        //public List<Reservation> TGetListWithReservationByWaitApproval(int id)
-        //{
-        //    return _reservationDal.GetListWithReservationByWaitApproval(id);
-        //}
-
-        //public void TAdd(Reservation t)
-        //{
-        //    _reservationDal.Insert(t);
-        //}
-
-        //public void TDelete(Reservation t)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Reservation TGetById(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public List<Reservation> TGetList()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public void TUpdate(Reservation t)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public void TChangeReservationStatus(int id, ReservationStatus newStatus)
+        {
+            _reservationDal.ChangeReservationStatus(id, newStatus);
+        }
     }
 }

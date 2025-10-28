@@ -12,5 +12,8 @@ namespace DataAccessLayer.Abstract
         List<Reservation> GetListWithReservationByWaitApproval(int id);
         List<Reservation> GetListWithReservationByAccepted(int id);
         List<Reservation> GetListWithReservationByPrevious(int id);
+        List<Reservation> GetCanceledReservationsByAdmin(int id);
+        public List<Reservation> GetAllReservationsWithDetails();
+        public void ChangeReservationStatus(int id, ReservationStatus newStatus);
     }
 }
