@@ -36,11 +36,12 @@ namespace TraversalCoreProject.Areas.Member.Controllers
                 {
                     await model.Image.CopyToAsync(stream);
                 }
-                user.ImageUrl = "userImages" + imageName;
-
+                user.ImageUrl ="/userImages/" + imageName;
+                
             }
             user.Name = model.name;
             user.SurName = model.surname;
+           
             if (!string.IsNullOrEmpty(model.password))
             {
                 user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, model.password);

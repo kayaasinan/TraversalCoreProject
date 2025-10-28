@@ -11,6 +11,6 @@ namespace BusinessLayer.Abstract
     public interface IGuideService : IGenericService<GuideDto>
     {
         void TChangeStatus(int id);
-        public List<GuideDto> TGetLast5Guide();
+        public List<GuideDto> TGetLast7Guide();
     }
 }

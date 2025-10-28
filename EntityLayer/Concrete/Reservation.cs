@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace EntityLayer.Concrete
 {
     public class Reservation
@@ -23,7 +17,7 @@ namespace EntityLayer.Concrete
         OnayBekliyor = 0,
         Onaylandi = 1,
         GeçmiþRezervasyon = 2,
-        DevamEdiyor = 3,
+        IptalEdildi = 3,
         Tamamlandi = 4
     }
 }

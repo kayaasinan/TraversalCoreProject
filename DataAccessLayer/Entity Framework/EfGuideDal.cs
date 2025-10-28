@@ -27,9 +27,9 @@ namespace DataAccessLayer.Entity_Framework
             }
         }
 
-        public List<Guide> GetLast5Guide()
+        public List<Guide> GetLast7Guide()
         {
-           return _context.Guides.OrderByDescending(x=>x.GuideId).Take(5).ToList();
+           return _context.Guides.OrderByDescending(x=>x.GuideId).Take(7).ToList();
         }
     }
 }

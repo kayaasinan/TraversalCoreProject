@@ -44,9 +44,9 @@ namespace BusinessLayer.Concrete
             return _mapper.Map<GuideDto>(entity);
         }
 
-        public List<GuideDto> TGetLast5Guide()
+        public List<GuideDto> TGetLast7Guide()
         {
-            var entities= _guideDal.GetLast5Guide();
+            var entities= _guideDal.GetLast7Guide();
             return _mapper.Map<List<GuideDto>>(entities);
         }
 

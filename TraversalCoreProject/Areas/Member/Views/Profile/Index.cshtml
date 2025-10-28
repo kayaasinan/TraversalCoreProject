@@ -4,50 +4,60 @@
     Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
 
+
 <div class="row">
     <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">Profil Düzenleme Sayfası</h4>
-                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                <div class="heading-elements">
-                    <ul class="list-inline mb-0">
-                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                        <li><a data-action="close"><i class="ft-x"></i></a></li>
-                    </ul>
-                </div>
-            </div> 
-            <form method="post" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label>Profil Resmi</label><br />
-                    <img src="~/userImages/@Model.imageUrl" width="150" class="img-thumbnail" />
-                </div>
-                <div class="form-group">
-                    <label>Profil Resmi Güncelle</label>
-                    <input type="file" asp-for="Image" class="form-control" />
-                </div>
-                @Html.Label("Adınız")
-                <input type="text" asp-for="name" class="form-control" />
-                <br />
-                @Html.Label("Soyadınız")
-                <input type="text" asp-for="surname" class="form-control" />
-                <br />
-                @Html.Label("Telefon Numaranız")
-                <input type="text" asp-for="phoneNumber" class="form-control" />
-                <br />
-                @Html.Label("Mail Adresiniz")
-                <input type="text" asp-for="mail" class="form-control" />
-                <br />
-                @Html.Label("Şifreniz")
-                <input type="text" asp-for="password" class="form-control" />
-                <br />
-                @Html.Label("Şifre Tekrar")
-                <input type="text" asp-for="confirmPassword" class="form-control" />
-                <br />
-                <button class="btn btn-outline-primary">Bilgileri Güncelle</button>
-            </form>
+        <div class="card shadow-sm border-0 rounded-3">
+            <div class="card-header bg-gradient-primary text-white">
+                <h4 class="mb-0">@T["Profile_EditPage_Title"]</h4>
+            </div>
+
+            <div class="card-body p-4">
+                <form method="post" enctype="multipart/form-data">
+
+                    <div class="mb-4 text-center">
+                        <label class="form-label fw-semibold d-block mb-2">@T["Profile_Image_Label"]</label>
+                        <img src="@Model.imageUrl" alt="Profil Resmi" class="rounded-circle border" style="width:150px; height:150px; object-fit:cover;">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">@T["Profile_UpdateImage_Label"]</label>
+                        <input type="file" asp-for="Image" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.Label(@T["Profile_Name_Label"])
+                        <input type="text" asp-for="name" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.Label(@T["Profile_Surname_Label"])
+                        <input type="text" asp-for="surname" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.Label(@T["Profile_Phone_Label"])
+                        <input type="text" asp-for="phoneNumber" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.Label(@T["Profile_Email_Label"])
+                        <input type="text" asp-for="mail" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.Label(@T["Profile_Password_Label"])
+                        <input type="password" asp-for="password" class="form-control" />
+                    </div>
+
+                    <div class="mb-4">
+                        @Html.Label(@T["Profile_ConfirmPassword_Label"])
+                        <input type="password" asp-for="confirmPassword" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-primary w-100">@T["Profile_Update_Button"]</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

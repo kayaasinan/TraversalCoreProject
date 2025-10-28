@@ -4,13 +4,13 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Entity_Framework;
 using DataAccessLayer.UnitOfWork;
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using EntityLayer.Concrete;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.Extensions.Options;
 using OfficeOpenXml;
 using System.Globalization;
 using System.Reflection;
@@ -54,6 +54,8 @@ builder.Services.AddMvc(config =>
     config.Filters.Add(new AuthorizeFilter(policy));
 });
 
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
 builder.Services.AddLogging(x =>
 {
     x.ClearProviders();
@@ -87,7 +89,22 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Login/SignIn/";
 });
+var supportedCultures = new[]
+{
+    new CultureInfo("tr"),
+    new CultureInfo("en"),
+    new CultureInfo("ru"),
+    new CultureInfo("fr"),
+    new CultureInfo("es")
+};
 
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture("tr");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+    options.RequestCultureProviders.Insert(0, new CookieRequestCultureProvider());
+});
 
 var app = builder.Build();
 
@@ -106,18 +123,14 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+var localizationOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>()?.Value;
+if (localizationOptions != null)
+    app.UseRequestLocalization(localizationOptions);
+
 
 app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseRouting();
-
-var supportedCultures = new[] { new CultureInfo("tr-TR") };
-app.UseRequestLocalization(new RequestLocalizationOptions
-{
-    DefaultRequestCulture = new RequestCulture("tr-TR"),
-    SupportedCultures = supportedCultures,
-    SupportedUICultures = supportedCultures
-});
 
 //app.UseMiddleware<ApiKeyMiddleware>();
 app.UseAuthentication();
