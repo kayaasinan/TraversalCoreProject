@@ -1,7 +1,6 @@
 ﻿using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace TraversalCoreProject.Areas.Member.Controllers
 {
@@ -13,6 +12,10 @@ namespace TraversalCoreProject.Areas.Member.Controllers
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             ViewBag.userName = values.Name + " " + values.SurName;
             ViewBag.images = values.ImageUrl;
+            return View();
+        }
+        public IActionResult MemberDashboard()
+        {
             return View();
         }
     }

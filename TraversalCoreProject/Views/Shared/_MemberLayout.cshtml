@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+
+@await Html.PartialAsync("/Views/MemberLayoutPartial/_HeadPartial.cshtml")
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
+
+    <!-- fixed-top-->
+    @await Html.PartialAsync("/Views/MemberLayoutPartial/_Navbar2Partial.cshtml")
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    @await Html.PartialAsync("/Views/MemberLayoutPartial/_NavbarPartial.cshtml")
+
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-wrapper-before"></div>
+            <div class="content-header row">
+                <div class="content-header-left col-md-4 col-12 mb-2">
+                    <h3 class="content-header-title">Traversal Üye Paneli</h3>
+                </div>
+            </div>
+            <div class="content-body">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    @await Html.PartialAsync("/Views/MemberLayoutPartial/_FooterPartial.cshtml")
+
+
+    @await Html.PartialAsync("/Views/MemberLayoutPartial/_ScriptPartial.cshtml")
+
+</body>
+</html>

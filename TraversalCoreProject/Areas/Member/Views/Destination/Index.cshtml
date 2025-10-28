@@ -2,61 +2,69 @@
 @model List<DestinationDto>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
-<div class="card-header bg-white">
-    <h3 class="mb-0 fw-bold text-primary">
-      Aktif Tur Rotalarımız
-    </h3>
-</div>
-<div class="card shadow-sm border-0 rounded-3">
-    <div class="card-body p-0">
-        <div class="table-responsive">
-            <table class="table table-hover table-striped align-middle mb-0">
-                <thead class="table-light">
-                    <tr>
-                        <th class="text-center">#</th>
-                        <th class="text-start">Şehir</th>
-                        <th class="text-start">Süre</th>
-                        <th class="text-center">Kapasite</th>
-                        <th class="text-center">Fiyat</th>
-                        <th class="text-center">Detaylar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td class="text-center">
-                                <i class="bi bi-hash text-secondary me-1"></i>
-                                @item.DestinationId
-                            </td>
-                            <td class="text-start">
-                                <i class="bi bi-geo-alt text-danger me-1"></i>
-                                @item.City
-                            </td>
-                            <td class="text-start">
-                                <i class="bi bi-calendar-event text-info me-1"></i>
-                                @item.DayNight
-                            </td>
-                            <td class="text-center">
-                                <i class="bi bi-people text-primary me-1"></i>
-                                @item.Capacity
-                            </td>
-                            <td class="text-center">
-                                <i class="bi bi-cash-stack text-success me-1"></i>
-                                <span class="badge bg-success">@item.Price ₺</span>
-                            </td>
-                            <td class="text-center">
-                                <a href="#" class="btn btn-sm btn-outline-info">
-                                    <i class="bi bi-eye"></i> Görüntüle
-                                </a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
 
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+                <h4 class="card-title">Aktif Tur Rotalarımız</h4>
+				<a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+				<div class="heading-elements">
+					<ul class="list-inline mb-0">
+						<li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+						<li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+						<li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+						<li><a data-action="close"><i class="ft-x"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="card-content collapse show">
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-start">Şehir</th>
+                                    <th class="text-start">Süre</th>
+                                    <th class="text-center">Kapasite</th>
+                                    <th class="text-center">Fiyat</th>
+                                    <th class="text-center">Detaylar</th>
+								</tr>
+							</thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="text-center">
+                                            @item.DestinationId
+                                        </td>
+                                        <td class="text-start">
+                                            @item.City
+                                        </td>
+                                        <td class="text-start">
+                                            @item.DayNight
+                                        </td>
+                                        <td class="text-center">
+                                            @item.Capacity
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="badge bg-success">@item.Price $</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="/Destination/DestinationDetails/@item.DestinationId" class="btn btn-sm btn-info">
+                                                <i class="bi bi-eye"></i> Görüntüle
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

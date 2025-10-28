@@ -1,40 +1,54 @@
 ﻿@model UserEditViewModel
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
-<div class="card-header bg-white">
-    <h3 class="mb-0 fw-bold text-primary">
-        Profilim
-    </h3>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Profil Düzenleme Sayfası</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div> 
+            <form method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label>Profil Resmi</label><br />
+                    <img src="~/userImages/@Model.imageUrl" width="150" class="img-thumbnail" />
+                </div>
+                <div class="form-group">
+                    <label>Profil Resmi Güncelle</label>
+                    <input type="file" asp-for="Image" class="form-control" />
+                </div>
+                @Html.Label("Adınız")
+                <input type="text" asp-for="name" class="form-control" />
+                <br />
+                @Html.Label("Soyadınız")
+                <input type="text" asp-for="surname" class="form-control" />
+                <br />
+                @Html.Label("Telefon Numaranız")
+                <input type="text" asp-for="phoneNumber" class="form-control" />
+                <br />
+                @Html.Label("Mail Adresiniz")
+                <input type="text" asp-for="mail" class="form-control" />
+                <br />
+                @Html.Label("Şifreniz")
+                <input type="text" asp-for="password" class="form-control" />
+                <br />
+                @Html.Label("Şifre Tekrar")
+                <input type="text" asp-for="confirmPassword" class="form-control" />
+                <br />
+                <button class="btn btn-outline-primary">Bilgileri Güncelle</button>
+            </form>
+        </div>
+    </div>
 </div>
-<form method="post" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label>Profil Resmi</label><br />
-        <img src="~/userImages/@Model.imageUrl" width="150" class="img-thumbnail" />
-    </div>
-    <div class="form-group">
-        <label>Profil Resmi Güncelle</label>
-        <input type="file" asp-for="Image" class="form-control" />
-    </div>
-    @Html.Label("Adınız")
-    <input type="text" asp-for="name" class="form-control" />
-    <br />
-    @Html.Label("Soyadınız")
-    <input type="text" asp-for="surname" class="form-control" />
-    <br />
-    @Html.Label("Telefon Numaranız")
-    <input type="text" asp-for="phoneNumber" class="form-control" />
-    <br />
-    @Html.Label("Mail Adresiniz")
-    <input type="text" asp-for="mail" class="form-control" />
-    <br />
-    @Html.Label("Şifreniz")
-    <input type="text" asp-for="password" class="form-control" />
-    <br />
-    @Html.Label("Şifre Tekrar")
-    <input type="text" asp-for="confirmPassword" class="form-control" />
-    <br />
-    <button class="btn btn-outline-primary">Bilgileri Güncelle</button>
-</form>
 

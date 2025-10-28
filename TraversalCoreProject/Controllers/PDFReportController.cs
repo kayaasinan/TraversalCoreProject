@@ -26,5 +26,9 @@ namespace TraversalCoreProject.Controllers
             _pdfService.CreateDynamicReservationReport();
             return File("/PDFReports/reservation_report.pdf", "application/pdf", "RezervasyonRaporu.pdf");
         }
+        public IActionResult Test()
+        {
+            return View();
+        }
     }
 }
