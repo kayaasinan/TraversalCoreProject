@@ -8,6 +8,7 @@ using EntityLayer.Concrete;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
@@ -30,6 +31,7 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 {
     options.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<Context>()
+  .AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider)
   .AddErrorDescriber<CustomIdentityValidator>();
 
 builder.Services.AddControllersWithViews();
