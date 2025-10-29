@@ -3,18 +3,21 @@ using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using DTOLayer.DTOs.AppUserDTOs;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
 
 namespace BusinessLayer.Concrete
 {
     public class AppUserManager : IAppUserService
     {
+        private readonly UserManager<AppUser> _userManager;
         private readonly IAppUserDal _appUserDal;
         private readonly IMapper _mapper;
 
-        public AppUserManager(IAppUserDal appUserDal, IMapper mapper)
+        public AppUserManager(IAppUserDal appUserDal, IMapper mapper, UserManager<AppUser> userManager)
         {
             _appUserDal = appUserDal;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         public void TAdd(AppUserDto dto)
@@ -45,6 +48,13 @@ namespace BusinessLayer.Concrete
         {
             var entity = _appUserDal.GetById(id);
             return _mapper.Map<AppUserDto>(entity);
+        }
+
+        public async Task<AppUserDto> TGetByIdAsync(int id)
+        {
+            var user = await _userManager.FindByIdAsync(id.ToString());
+            return _mapper.Map<AppUserDto>(user);
+
         }
     }
 }

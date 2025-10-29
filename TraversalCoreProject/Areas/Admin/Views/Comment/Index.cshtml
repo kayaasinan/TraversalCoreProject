@@ -18,7 +18,8 @@
                     <tr>
                         <th class="text-center">#</th>
                         <th class="text-start">Kullanıcı</th>
-                        <th class="text-center">Lokasyon</th>
+                        <th class="text-start">Lokasyon</th>
+                        <th class="text-start">Yorum</th>
                         <th class="text-center">Tarih</th>
                         <th class="text-center">Sil</th>
                     </tr>
@@ -29,18 +30,21 @@
                         count++;
                         <tr>
                             <td class="text-center">
-                                <i class="bi bi-hash text-secondary me-1"></i>
                                 @count
                             </td>
 
                             <td class="text-start">
                                 <i class="bi bi-people text-primary me-1"></i>
-                                @item.CommentUser
+                                @item.AppUser.Name @item.AppUser.SurName
                             </td>
 
-                            <td class="text-center">
+                            <td class="text-start">
                                 <i class="bi bi-geo-alt text-primary me-1"></i>
                                 @item.Destination.City
+                            </td>
+                            <td class="text-start">
+                                <i class="bi bi-geo-alt text-primary me-1"></i>
+                                @item.CommentContent.Substring(0,50)...
                             </td>
 
                             <td class="text-center">

@@ -10,5 +10,7 @@ namespace BusinessLayer.Abstract
 {
     public interface IAppUserService : IGenericService<AppUserDto>
     {
+        Task<AppUserDto> TGetByIdAsync(int id);
+
     }
 }

@@ -19,12 +19,12 @@ namespace DataAccessLayer.Entity_Framework
 
         public List<Comment> GetCommentListWithDestination()
         {
-            return _context.Comments.Include(x => x.Destination).ToList();
+            return _context.Comments.Include(x=>x.AppUser).Include(x => x.Destination).ToList();
         }
 
         public List<Comment> GetCommentListWithDestinationAndUser(int id)
         {
-            return _context.Comments.Where(x=>x.DestinationId==id).Include(x => x.AppUser).ToList();
+            return _context.Comments.Where(x=>x.DestinationId==id).Include(x=>x.Destination).Include(x => x.AppUser).ToList();
         }
     }
 }

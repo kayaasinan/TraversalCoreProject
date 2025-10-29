@@ -14,16 +14,17 @@ namespace TraversalCoreProject.Controllers
         {
            return View();
         }
-        public IActionResult StaticExcelReport()
-        {
-            _excelService.CreateStaticExcelReport();
-            return File("/ExcelReports/StaticReport.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","StaticReport.xlsx");
-        }
-
         public IActionResult DestinationExcelReport()
         {
             _excelService.CreateDestinationExcelReport();
-            return File("/ExcelReports/DestinationReport.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","DestinationReport.xlsx");
+            return File("/ExcelReports/DestinationReport.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "DestinationReport.xlsx");
+        }
+        
+
+        public IActionResult StaticExcelReport()
+        {
+            _excelService.CreateStaticExcelReport();
+            return File("/ExcelReports/StaticReport.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "StaticReport.xlsx");
         }
     }
 }

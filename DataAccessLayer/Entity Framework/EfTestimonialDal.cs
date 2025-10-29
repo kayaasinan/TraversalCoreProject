@@ -2,12 +2,6 @@
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Entity_Framework
 {
@@ -15,6 +9,16 @@ namespace DataAccessLayer.Entity_Framework
     {
         public EfTestimonialDal(Context context) : base(context)
         {
+        }
+
+        public void ChangeGuideStatus(int id)
+        {
+            var values = _context.Testimonials.Find(id);
+            if (values != null)
+            {
+                values.Status = !values.Status;
+                Update(values);
+            }
         }
     }
 }

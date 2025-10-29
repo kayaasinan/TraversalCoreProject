@@ -52,5 +52,9 @@ namespace BusinessLayer.Concrete
             return _mapper.Map<TestimonialDto>(entity);
         }
 
+        public void TChangeStatus(int id)
+        {
+            _testimonialDal.ChangeGuideStatus(id);
+        }
     }
 }

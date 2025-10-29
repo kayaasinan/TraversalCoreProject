@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
 {
     public interface ITestimonialService : IGenericService<TestimonialDto>
     {
+        void TChangeStatus(int id);
     }
 }
