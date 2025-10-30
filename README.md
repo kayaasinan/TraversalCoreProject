@@ -124,7 +124,7 @@ Bu sayede hem performans hem de okunabilirlik açısından sade bir yapı elde e
 
 **🏠 Şifremi Yenileme Linki** 
 
-![Register](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/forgetPasswordAdmin.png?raw=true) 
+![ForgetPassword](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/forgetPasswordAdmin.png?raw=true) 
 
 ##  Admin Paneli
 
@@ -155,7 +155,7 @@ Bu sayede hem performans hem de okunabilirlik açısından sade bir yapı elde e
 
 **🏠 Mesaj Gönderme Sayfası** 
 
-![Destinations](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/sendMail.png?raw=true) 
+![SendMessage](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/sendMail.png?raw=true) 
 
 **🏠 Öne Çıkanlar** 
 
@@ -187,11 +187,11 @@ Bu sayede hem performans hem de okunabilirlik açısından sade bir yapı elde e
 
 **🏠 Rapid Api ile Anlık Döviz Bilgileri** 
 
-![Destinations](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/exchange.png?raw=true) 
+![Exchange](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/exchange.png?raw=true) 
 
 **🏠 Üyeler İçin IMDB Top l00 Film Listesi Önerisi-Rapid Api** 
 
-![Destinations](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/imdb.png?raw=true) 
+![IMDB](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/imdb.png?raw=true) 
 
 **🏠 Sweet Alert ile Uyarılar** 
 
