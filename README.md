@@ -49,6 +49,158 @@ Bu sayede hem performans hem de okunabilirlik açısından sade bir yapı elde e
 
 ## 📷 Ekran Görüntüleri
 ---
+##  Ana Sayfa
+**🏠 Ana Sayfa** 
+
+![HomePage](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/HomePage/HomePage1.png?raw=true) 
+
+**🏠 Rotalar** 
+
+![Destination](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/HomePage/HomePage2.png?raw=true) 
+
+![Destination](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/HomePage/HomePage4.png?raw=true) 
+
+**🏠 Öne Çıkanlar** 
+
+![Banner](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/HomePage/HomePage3.png?raw=true) 
+
+**🏠 Rehberler** 
+
+![Guide](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/HomePage/HomePage5.png?raw=true) 
+
+**🏠 Referanslar** 
+
+![Testimonial](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/HomePage/HomePage6.png?raw=true) 
+
+**🏠 Bize Ulaşın** 
+
+![ContactUs](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/HomePage/HomePage7.png?raw=true) 
+
+##  Üye Paneli
+
+**🏠 Üye Ol** 
+
+![Register](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/register1.png?raw=true) 
+
+**🏠 Giriş Yap** 
+
+![Login](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/memberLogin.png?raw=true) 
+
+**🏠 Dashboard** 
+
+![Dashboard](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/memberDashboard1.png?raw=true) 
+
+![Dashboard](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/memberDashboard2.png?raw=true) 
+
+**🏠 Aktif Turlar Rotaları** 
+
+![AllDestination](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/allDestination.png?raw=true) 
+
+**🏠 Son Eklenen Turlar** 
+
+![LastDestination](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/lastDestination.png?raw=true) 
+
+**🏠 Profil Düzenleme Sayfası** 
+
+![Profile](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/profile1.png?raw=true) 
+
+![Profile](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/profile2.png?raw=true) 
+
+**🏠 Onaylanan Rezervasyonlar** 
+
+![Accepted](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/accepted.png?raw=true) 
+
+**🏠 Geçmiş Rezervasyonlar** 
+
+![Past](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/past.png?raw=true) 
+
+**🏠 Onay Bekleyen Rezervasyonlar** 
+
+![Register](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/approvel.png?raw=true) 
+
+**🏠 Dil Seçenekleri** 
+
+![Language](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/russianLanguage.png?raw=true) 
+
+**🏠 Şifremi Yenileme Linki** 
+
+![Register](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Member/forgetPasswordAdmin.png?raw=true) 
+
+##  Admin Paneli
+
+**🏠 Dashboard** 
+
+![Register](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/adminDashboard.png?raw=true) 
+![Register](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/adminDashboard1.png?raw=true) 
+
+**🏠 Rotalar** 
+
+![Destinations](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/cqrs.png?raw=true) 
+
+**🏠 Rezervasyonlar** 
+
+![Reservations](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/reservation.png?raw=true) 
+
+**🏠 Rehberler** 
+
+![Guides](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/guides.png?raw=true) 
+
+**🏠 Referanslar** 
+
+![Testimonial](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/testimonial.png?raw=true) 
+
+**🏠 Yorumlar** 
+
+![Comments](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/comments.png?raw=true) 
+
+**🏠 Mesaj Gönderme Sayfası** 
+
+![Destinations](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/sendMail.png?raw=true) 
+
+**🏠 Öne Çıkanlar** 
+
+![Banner](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/banner.png?raw=true) 
+
+**🏠 Üyeler** 
+
+![Members](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/memberList.png?raw=true) 
+
+**🏠 Admine Gelen Mesajlar** 
+
+![Messages](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/messages.png?raw=true) 
+
+**🏠 Rol Atama** 
+
+![Role](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/assignrole.png?raw=true) 
+
+**🏠 Rapor Oluşturma Sayfaları** 
+
+![Report](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/pdfreport.png?raw=true) 
+
+![Report](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/excelReport%20(2).png?raw=true) 
+
+![Report](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/excelReport.png?raw=true) 
+
+**🏠 Booking Üzerinden Rapid APİ ile Paris Konumu İçin Anlık Rezervasyon Kontrolü ve Fiyat Bilgisi** 
+
+![Bookings](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/bookingList.png?raw=true) 
+
+**🏠 Rapid Api ile Anlık Döviz Bilgileri** 
+
+![Destinations](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/exchange.png?raw=true) 
+
+**🏠 Üyeler İçin IMDB Top l00 Film Listesi Önerisi-Rapid Api** 
+
+![Destinations](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/imdb.png?raw=true) 
+
+**🏠 Sweet Alert ile Uyarılar** 
+
+![Alert](https://github.com/kayaasinan/TraversalCoreProject/blob/master/TraversalCoreProject/wwwroot/imagesReadMe/Admin/alert.png?raw=true) 
+
+
+
+
+
 
 
 
